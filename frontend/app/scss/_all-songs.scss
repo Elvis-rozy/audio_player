@@ -5,7 +5,7 @@ main {
   flex-wrap: wrap;
   overflow: hidden;
 
-  .playlist, .discover {
+  .side-bar, .discover {
     position: relative;
     width: 25%;
     height: 90%;
@@ -13,7 +13,7 @@ main {
     box-shadow: 5px 0 2px #090f1f;
   }
 
-  .playlist {
+  .side-bar {
     padding-top: 90px;
 
     .categories {

@@ -38,6 +38,11 @@ button {
   color: #36e2ec;
   height: 25px;
   z-index: 3;
+
+  &:hover {
+    color: #fff;
+    background: #36e2ec;
+  }
 }
 
 .cta-on {

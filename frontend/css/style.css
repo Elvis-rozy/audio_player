@@ -37,6 +37,10 @@ button {
   height: 25px;
   z-index: 3;
 }
+button:hover {
+  color: #fff;
+  background: #36e2ec;
+}
 
 .cta-on {
   color: #fff;
@@ -100,34 +104,34 @@ main {
   flex-wrap: wrap;
   overflow: hidden;
 }
-main .playlist, main .discover {
+main .side-bar, main .discover {
   position: relative;
   width: 25%;
   height: 90%;
   background-color: #0b101c;
   box-shadow: 5px 0 2px #090f1f;
 }
-main .playlist {
+main .side-bar {
   padding-top: 90px;
 }
-main .playlist .categories {
+main .side-bar .categories {
   padding-left: 20px;
   display: flex;
   gap: 10px;
   flex-direction: column;
   margin-bottom: 40px;
 }
-main .playlist .categories .active {
+main .side-bar .categories .active {
   color: #36e2ec;
 }
-main .playlist .categories .active span {
+main .side-bar .categories .active span {
   display: none;
 }
-main .playlist .categories .active img {
+main .side-bar .categories .active img {
   display: flex;
   margin-right: 20px;
 }
-main .playlist .categories h4 {
+main .side-bar .categories h4 {
   font-weight: 100;
   color: #4c5767;
   transition: 0.3s linear;
@@ -136,17 +140,17 @@ main .playlist .categories h4 {
   display: flex;
   align-items: center;
 }
-main .playlist .categories h4:hover {
+main .side-bar .categories h4:hover {
   color: #fff;
 }
-main .playlist .categories h4:hover span::before {
+main .side-bar .categories h4:hover span::before {
   border: 2px solid #fff;
 }
-main .playlist .categories h4 span {
+main .side-bar .categories h4 span {
   position: relative;
   margin-right: 35px;
 }
-main .playlist .categories h4 span::before {
+main .side-bar .categories h4 span::before {
   content: "";
   position: absolute;
   width: 4px;
@@ -156,10 +160,10 @@ main .playlist .categories h4 span::before {
   top: -4px;
   transition: 0.3s linear;
 }
-main .playlist .categories h4 img {
+main .side-bar .categories h4 img {
   display: none;
 }
-main .playlist .songs {
+main .side-bar .songs {
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -167,7 +171,7 @@ main .playlist .songs {
   width: 25.28%;
   height: 58vh;
 }
-main .playlist .songs li {
+main .side-bar .songs li {
   position: relative;
   padding: 10px 20px;
   display: flex;
@@ -176,28 +180,28 @@ main .playlist .songs li {
   cursor: pointer;
   transition: 0.3s linear;
 }
-main .playlist .songs li:hover {
+main .side-bar .songs li:hover {
   background: rgba(105, 105, 170, 0.1);
 }
-main .playlist .songs li span {
+main .side-bar .songs li span {
   color: #4c5262;
   font-size: 14px;
 }
-main .playlist .songs li img {
+main .side-bar .songs li img {
   margin-left: 25px;
   width: 32px;
   height: 32px;
 }
-main .playlist .songs li h5 {
+main .side-bar .songs li h5 {
   font-size: 11px;
   margin-left: 15px;
 }
-main .playlist .songs li h5 p {
+main .side-bar .songs li h5 p {
   font-size: 9px;
   padding-top: 5px;
   color: #4c5262;
 }
-main .playlist .songs li h5 img {
+main .side-bar .songs li h5 img {
   position: absolute;
   width: 20px;
   height: 20px;
@@ -418,8 +422,9 @@ main .master-play .active2 .wave1:nth-child(3) {
 
 .discover {
   display: flex;
+  padding: 40px 0 10px 40px;
   flex-direction: column;
-  gap: 30px;
+  gap: 4vh;
 }
 .discover .playing img {
   position: absolute;
@@ -440,35 +445,72 @@ main .master-play .active2 .wave1:nth-child(3) {
   margin: 12px 0 20px;
   line-height: 18px;
 }
-.discover .new-releases {
+.discover .cards {
   position: relative;
 }
-.discover .new-releases h3 {
+.discover .cards h3 {
   font-weight: 100;
   margin-bottom: 15px;
 }
-.discover .new-releases .new {
-  display: flex;
-  gap: 10px;
-  align-items: center;
+.discover .cards .new {
+  display: grid;
+  grid-auto-flow: column;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
 }
-.discover .new-releases .new article {
+.discover .cards .new::-webkit-scrollbar {
+  display: none;
+}
+.discover .cards .new .release-cover {
   background: #02050a;
-  border-radius: 5px;
   overflow: hidden;
 }
-.discover .new-releases .new article img {
-  width: 130px;
-  height: 100px;
+.discover .cards .new .release-cover img {
+  width: 100%;
 }
-.discover .new-releases .new article h5 {
+.discover .cards .new .release-cover h5 {
   font-size: 12px;
   margin: 0 0 9px 6px;
   font-weight: 100;
 }
-.discover .new-releases .new article p {
+.discover .cards .new .release-cover p {
   color: #4c5767;
   margin-top: 3px;
   font-size: 8px;
   font-weight: 100;
+}
+
+.grid-col-big {
+  grid-auto-columns: 21%;
+  gap: 15px;
+}
+
+.grid-col-small {
+  grid-auto-columns: 8%;
+  gap: 20px;
+}
+
+.snaps-inline {
+  scroll-snap-type: inline mandatory;
+  scroll-padding-inline: 20px;
+}
+
+.snaps-inline > * {
+  scroll-snap-align: start;
+}
+
+.rectgle {
+  border-radius: 5px;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.cover-img {
+  height: auto;
+}
+
+.artist-img {
+  height: 8vh;
 }

@@ -1,7 +1,8 @@
 .discover {
   display: flex;
+  padding: 40px 0 10px 40px;
   flex-direction: column;
-  gap: 30px;
+  gap: 4vh;
 
   .playing {
     img {
@@ -27,7 +28,7 @@
     }
   }
 
-  .new-releases {
+  .cards {
     position: relative;
 
     h3 {
@@ -36,18 +37,21 @@
     }
 
     .new {
-      display: flex;
-      gap: 10px;
-      align-items: center;
+      display: grid;
+      grid-auto-flow: column;
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
 
-      article {
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .release-cover {
         background: #02050a;
-        border-radius: 5px;
         overflow: hidden;
 
         img {
-          width: 130px;
-          height: 100px;
+          width: 100%;
         }
 
         h5 {
@@ -65,4 +69,38 @@
       }
     }
   }
+}
+
+.grid-col-big {
+  grid-auto-columns: 21%;
+  gap: 15px;
+}
+.grid-col-small {
+  grid-auto-columns: 8%;
+  gap: 20px;
+}
+
+.snaps-inline {
+  scroll-snap-type: inline mandatory ;
+  scroll-padding-inline: 20px;
+}
+
+.snaps-inline > * {
+  scroll-snap-align: start;
+}
+
+.rectgle {
+  border-radius: 5px;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.cover-img {
+  height: auto;
+}
+
+.artist-img {
+  height: 8vh;
 }
