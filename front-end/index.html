@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--===== Link to Stylesheet =====-->
+  <link rel="stylesheet" href="css/style.css">
+  <!--===== Page Title=====-->
+  <title>tuneflix home</title>
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo">
+      <a href="#">tune<span>flix</span></a>
+    </div>
+  </header>
+  <main>
+
+    <section class="side-bar">
+      <div class="categories">
+        <h4 class="active sect music"><span></span> <img src="images/icons/music-note-beamed.svg" alt="">Music</h4>
+        <h4 class="sect video"><span></span> <img src="images/icons/video-play.svg" alt="">Videos</h4>
+      </div>
+      <ul class="songs"></ul>
+    </section>
+
+    <section class="discover">
+      <nav>
+        <ul class="links">
+          <li class="on li">Recommendations</li><!----><li class="li">Favorites</li><!----><li class="li">Songs</li>
+        </ul>
+        <div class="search-form">
+          <img src="images/icons/search.svg" alt="search icon">
+          <input type="search" id="search-bar" name="search-bar" placeholder="Search ...">
+        </div>
+      </nav>
+      <div class="playing">
+        <img class="active-img" src="images/images/alan-walker.jpg" alt="album cover">
+        <h1 class="activeSongName">Alan Walker - Fade</h1>
+        <p class="activeSongDesc">You were the shadow to my light did you feel
+          us, Another start<br>you fade away. Afraid our aim
+          is out of sight wanna see us alive.
+        </p>
+        <div class="buttons">
+          <button class="cta-on button">PLAY</button>
+          <button class="button">FOLLOW</button>
+        </div>
+      </div>
+<!--       <audio class="aud" src="/music/Calvin Harris  Sam Smith - Promises (Official).mp3"></audio>
+ -->      <div class="cards">
+        <h3>Popular Songs</h3>
+        <div class="new grid-col-big snaps-inline"></div>
+      </div>
+
+      <div class="cards">
+        <h3>Popular Artists</h3>
+        <div class="new grid-col-small snaps-inline"></div>
+      </div>
+    </section>
+
+    <section class="master-play">
+      <div class="wave">
+        <span class="wave1"></span>
+        <span class="wave1"></span>
+        <span class="wave1"></span>
+      </div>
+      <img id="track_image" src="images/covers/smith.jpg" alt="cover image">
+      <div class="details">
+        <h5 id="title">Faded</h5>
+        <p id="artist">Alan Walker</p>
+      </div>
+      <div class="icons">
+        <img id="prev" onclick="previous_song()" src="images/icons/skip-backward-fill.svg" alt="skip backward icon">
+        <img id="play" class="playBtn" src="images/icons/play-fill.svg" alt="play icon">
+        <img id="next" src="images/icons/skip-forward-fill.svg" alt="skip forward icon">
+        <audio id="audio" src=""></audio>
+      </div>
+      <span id="current-start">0:00</span>
+      <div class="bar">
+        <input type="range" id="duration_slider" min="0" value="0" max="100" onchange="change_duration()">
+        <div class="bar2" id="bar2"></div>
+        <div class="dot"></div>
+      </div>
+      <span id="current-end">0:00</span>
+      <div class="vol">
+        <img src="images/icons/volume-down.svg" alt="volume down icon">
+        <input type="range" id="vol" min="0" value="30" max="100" onchange="volume_change()">
+        <div class="vol-bar"></div>
+        <div class="dot" id="vol-dot"></div>
+      </div>
+
+    </section>
+
+  </main>
+  <script src="/app/js/script.js"></script>
+  <script src="/app/js/scriptB.js"></script>
+</body>
+</html>
