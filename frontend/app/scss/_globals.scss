@@ -36,16 +36,23 @@ button {
   background: transparent;
   border: 1px solid #36e2ec;
   color: #36e2ec;
+  transition: .05s linear;
   height: 25px;
   z-index: 3;
 
   &:hover {
     color: #fff;
+    cursor: pointer;
     background: #36e2ec;
   }
 }
 
 .cta-on {
   color: #fff;
+  transform: scale(.98);
   background: #36e2ec;
+}
+
+.movie-edits {
+  height: 25vh !important;
 }

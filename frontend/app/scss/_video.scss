@@ -1,0 +1,13 @@
+.video-playing {
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+
+  .active-video {
+    position: absolute;
+    width: 90vw;
+    z-index: 7;
+  }
+}
