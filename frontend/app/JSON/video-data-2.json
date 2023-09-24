@@ -1,0 +1,112 @@
+[
+  {
+    "video_name": "Halo",
+    "video_image": "images/video/halo.jpg",
+    "video_year": "2018",
+    "video_group": "HD",
+    "video_duration": "1hr 52min",
+    "video_id": 1,
+    "video_rating": "8.5",
+    "video_info": "Scream- horror single",
+    "video_src": "movies/Halo.mkv"
+  },
+  {
+    "video_name": "John Wick 4",
+    "video_image": "images/video/johnwick.jpg",
+    "video_year": "2023",
+    "video_group": "HD",
+    "video_duration": "1hr 46min",
+    "video_id": 2,
+    "video_rating": "7.2",
+    "video_info": "Quantumania",
+    "video_src": "movies/Antman&wasp.mkv"
+  },
+  {
+    "video_name": "The Little Mermaid",
+    "video_image": "images/video/lilmermaid.jpg",
+    "video_year": "2023",
+    "video_group": "4K",
+    "video_duration": "1hr 29min",
+    "video_id": 3,
+    "video_rating": "7.9",
+    "video_info": "Barbie and ken adventures",
+    "video_src": "movies/Barbie.mkv"
+  },
+  {
+    "video_name": "The Meg 2",
+    "video_image": "images/video/meg2.jpg",
+    "video_year": "2023",
+    "video_group": "HD",
+    "video_duration": "2hr 10min",
+    "video_id": 4,
+    "video_rating": "9.2",
+    "video_info": "You can't escape your past",
+    "video_src": "movies/Creed3.mkv"
+  },
+  {
+    "video_name": "Mission Impossible",
+    "video_image": "images/video/mission.jpg",
+    "video_year": "2023",
+    "video_group": "4K",
+    "video_duration": "2hr 6min",
+    "video_id": 5,
+    "video_rating": "9.7",
+    "video_info": "Honor among thieves",
+    "video_src": "movies/Dungeons&Dragons.mkv"
+  },
+  {
+    "video_name": "No Hard Feelings",
+    "video_image": "images/video/nohardfeels.jpg",
+    "video_year": "2023",
+    "video_group": "HD",
+    "video_duration": "1hr 32min",
+    "video_id": 6,
+    "video_rating": "8.5",
+    "video_info": "Love between Opposites",
+    "video_src": "-------------"
+  },
+  {
+    "video_name": "Shazam 2",
+    "video_image": "images/video/shazam.jpg",
+    "video_year": "2023",
+    "video_group": "4K",
+    "video_duration": "56min",
+    "video_id": 7,
+    "video_rating": "7.7",
+    "video_info": "Demon possessions",
+    "video_src": "-------------"
+  },
+  {
+    "video_name": "Spiderman",
+    "video_image": "images/video/spiderman.jpg",
+    "video_year": "2023",
+    "video_group": "HD",
+    "video_duration": "2hr 36min",
+    "video_id": 8,
+    "video_rating": "8.6",
+    "video_info": "Prepare for the ride of your life",
+    "video_src": "-------------"
+  },
+  {
+    "video_name": "The Nun 2",
+    "video_image": "images/video/thenun.jpg",
+    "video_year": "2023",
+    "video_group": "HD",
+    "video_duration": "2hr 51min",
+    "video_id": 9,
+    "video_rating": "8.5",
+    "video_info": "Superhero action packed",
+    "video_src": "-------------"
+  },
+  {
+    "video_name": "The Transformers",
+    "video_image": "images/video/transformers.jpg",
+    "video_year": "2023",
+    "video_group": "4K",
+    "video_duration": "2hr 17min",
+    "video_id": 9,
+    "video_rating": "7.9",
+    "video_info": "heroes and protectors vol 4",
+    "video_src": "-------------"
+  }
+]

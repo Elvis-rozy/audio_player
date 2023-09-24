@@ -34,28 +34,35 @@ button {
   background: transparent;
   border: 1px solid #36e2ec;
   color: #36e2ec;
+  transition: 0.05s linear;
   height: 25px;
   z-index: 3;
 }
 button:hover {
   color: #fff;
+  cursor: pointer;
   background: #36e2ec;
 }
 
 .cta-on {
   color: #fff;
+  transform: scale(0.98);
   background: #36e2ec;
+}
+
+.movie-edits {
+  height: 25vh !important;
 }
 
 @keyframes wave {
   0% {
-    height: 10px;
+    height: 8px;
   }
   50% {
     height: 15px;
   }
   100% {
-    height: 10px;
+    height: 8px;
   }
 }
 .main-header {
@@ -66,10 +73,12 @@ button:hover {
 .main-header .logo a {
   font-size: 18px;
   font-style: italic;
+  color: #bbbbe7;
 }
 .main-header .logo a span {
   font-size: 26px;
   font-weight: 700;
+  color: #00BCD4;
 }
 
 nav {
@@ -77,7 +86,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   height: 15%;
-  width: 90%;
+  width: 95%;
 }
 nav .links {
   display: inline-flex;
@@ -86,14 +95,14 @@ nav .links {
   font-size: 16px;
   cursor: pointer;
 }
-nav .links li {
+nav .links .li {
   transition: 0.3s linear;
   color: #4c5767;
 }
-nav .links li:hover {
+nav .links .li:hover {
   color: #fff;
 }
-nav .links li:nth-child(1) {
+nav .links .on {
   color: #36e2ec;
 }
 
@@ -107,9 +116,11 @@ main {
 main .side-bar, main .discover {
   position: relative;
   width: 25%;
-  height: 90%;
   background-color: #0b101c;
   box-shadow: 5px 0 2px #090f1f;
+}
+main .height-music {
+  height: 90%;
 }
 main .side-bar {
   padding-top: 90px;
@@ -164,12 +175,12 @@ main .side-bar .categories h4 img {
   display: none;
 }
 main .side-bar .songs {
-  display: flex;
   flex-direction: column;
   position: fixed;
   overflow: auto;
   width: 25.28%;
-  height: 58vh;
+  padding-bottom: 4vh;
+  height: 66vh;
 }
 main .side-bar .songs li {
   position: relative;
@@ -192,21 +203,65 @@ main .side-bar .songs li img {
   width: 32px;
   height: 32px;
 }
-main .side-bar .songs li h5 {
+main .side-bar .songs li .song-details h5 {
   font-size: 11px;
   margin-left: 15px;
 }
-main .side-bar .songs li h5 p {
+main .side-bar .songs li .song-details p {
   font-size: 9px;
   padding-top: 5px;
   color: #4c5262;
+  margin-left: 15px;
 }
-main .side-bar .songs li h5 img {
+main .side-bar .songs li .playico {
+  border: 1px solid #343434;
+  border-radius: 50%;
   position: absolute;
+  transition: 0.1s linear;
   width: 20px;
   height: 20px;
   right: 15px;
   top: 16px;
+}
+main .side-bar .songs li .playico:hover {
+  transform: scale(0.85);
+}
+main .video-links {
+  justify-content: space-between;
+  flex-direction: column;
+  height: 15vh;
+  align-items: start;
+  margin-left: 20px;
+  width: 25vh;
+}
+main .video-links li {
+  font-weight: 100;
+  color: #4c5767;
+  transition: 0.3s linear;
+  font-style: italic;
+  cursor: pointer;
+  display: flex;
+  font-size: 14px;
+}
+main .video-links li:hover {
+  color: #fff;
+}
+main .video-links li img {
+  margin-right: 20px;
+}
+main .aboutUs {
+  position: absolute;
+  bottom: 10px;
+  left: 30px;
+  font-size: 13px;
+}
+main .aboutUs li {
+  color: #4c5262;
+  margin-bottom: 10px;
+  transition: 0.3s linear;
+}
+main .aboutUs li:hover {
+  color: #fff;
 }
 main .discover {
   padding-left: 30px;
@@ -223,13 +278,12 @@ main .master-play {
   z-index: 2;
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
   padding: 0 20px;
 }
 main .master-play .wave {
-  width: 30px;
   height: 30px;
   padding-bottom: 5px;
-  background: #0b1320;
   justify-content: center;
   border-radius: 5px 5px 0 0;
   display: flex;
@@ -238,7 +292,7 @@ main .master-play .wave {
 }
 main .master-play .wave .wave1 {
   width: 4px;
-  height: 10px;
+  height: 8px;
   border-radius: 10px 10px 0 0;
   background: #36e2ec;
   animation: wave unset;
@@ -246,27 +300,29 @@ main .master-play .wave .wave1 {
 main .master-play .wave .wave1:not(:last-child) {
   margin-right: 3px;
 }
-main .master-play .wave .wave1:nth-child(2) {
-  height: 13px;
+main .master-play .wave .wave1:nth-child(2), main .master-play .wave .wave1:nth-child(4), main .master-play .wave .wave1:nth-child(6) {
+  height: 11px;
   /*animation-delay: .4s;*/
 }
-main .master-play .wave .wave1:nth-child(3) {
-  height: 8px;
+main .master-play .wave .wave1:nth-child(3), main .master-play .wave .wave1:nth-child(7) {
+  height: 14px;
   /*animation-delay: .8s;*/
 }
 main .master-play img {
   width: 35px;
   height: 35px;
 }
-main .master-play h5 {
+main .master-play .details h5 {
   width: 130px;
   font-size: 13px;
   margin-left: 15px;
   line-height: 15px;
 }
-main .master-play h5 p {
+main .master-play .details p {
   font-size: 11px;
   color: #4c5262;
+  width: 130px;
+  margin-left: 15px;
 }
 main .master-play .icons {
   font-size: 20px;
@@ -282,7 +338,7 @@ main .master-play .icons img {
 main .master-play .icons img:nth-child(2) {
   border: 1px solid rgba(105, 105, 170, 0.1);
   border-radius: 50%;
-  padding: 1px 1px 0 4px;
+  padding: 1px 1px 0 2px;
   margin: 0 5px;
   transition: 0.3s linear;
 }
@@ -296,7 +352,7 @@ main .master-play span .current-start {
 }
 main .master-play .bar {
   position: relative;
-  width: 38%;
+  width: 30%;
   height: 2px;
   background: rgba(105, 105, 170, 0.1);
   margin: 0 15px 0 10px;
@@ -351,7 +407,7 @@ main .master-play .vol img {
   position: absolute;
   top: -17px;
   left: -30px;
-  width: 25px;
+  width: 20px;
 }
 main .master-play .vol input {
   position: absolute;
@@ -369,6 +425,7 @@ main .master-play .vol .vol-bar {
   width: 0;
   height: 100%;
   top: 0;
+  transition: 0.3s linear;
 }
 main .master-play .vol .dot {
   position: absolute;
@@ -397,7 +454,7 @@ main .master-play .vol .dot::before {
 Vendor prefixes
 ==================================*/
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -412,19 +469,45 @@ main .master-play .active2 .wave1 {
   animation: wave 0.5s linear infinite;
 }
 
-main .master-play .active2 .wave1:nth-child(2) {
+main .master-play .active2 .wave1:nth-child(2), main .master-play .active2 .wave1:nth-child(4), main .master-play .active2 .wave1:nth-child(6) {
   animation-delay: 0.4s;
 }
 
-main .master-play .active2 .wave1:nth-child(3) {
+main .master-play .active2 .wave1:nth-child(3), main .master-play .active2 .wave1:nth-child(7) {
   animation-delay: 0.8s;
+}
+
+/* .active {
+  color: #36e2ec;
+
+  span {
+    display: none;
+  }
+
+  img {
+    display: flex;
+    margin-right: 20px;
+  }
+}
+ */
+.video-playing {
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+.video-playing .active-video {
+  position: absolute;
+  width: 90vw;
+  z-index: 7;
 }
 
 .discover {
   display: flex;
-  padding: 40px 0 10px 40px;
+  padding: 25px 0 10px 40px;
   flex-direction: column;
-  gap: 4vh;
+  gap: 3.5vh;
 }
 .discover .playing img {
   position: absolute;
@@ -450,7 +533,7 @@ main .master-play .active2 .wave1:nth-child(3) {
 }
 .discover .cards h3 {
   font-weight: 100;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 .discover .cards .new {
   display: grid;
@@ -461,33 +544,81 @@ main .master-play .active2 .wave1:nth-child(3) {
 .discover .cards .new::-webkit-scrollbar {
   display: none;
 }
+.discover .cards .new .video-height {
+  height: 38vh;
+}
 .discover .cards .new .release-cover {
   background: #02050a;
   overflow: hidden;
+  position: relative;
+  cursor: pointer;
 }
-.discover .cards .new .release-cover img {
+.discover .cards .new .release-cover:hover .icon, .discover .cards .new .release-cover:hover .vid-play {
+  opacity: 1;
+}
+.discover .cards .new .release-cover .icon, .discover .cards .new .release-cover .vid-play {
+  transition: 0.3s linear;
+  opacity: 0;
+  width: 25px;
+  position: absolute;
+  top: 30%;
+  left: 40%;
+}
+.discover .cards .new .release-cover .cover-img {
   width: 100%;
+  height: 16vh;
+}
+.discover .cards .new .release-cover .video-size {
+  width: 100%;
+  height: 26vh;
+}
+.discover .cards .new .release-cover .artist-img {
+  width: 100%;
+  height: 100%;
 }
 .discover .cards .new .release-cover h5 {
-  font-size: 12px;
-  margin: 0 0 9px 6px;
+  font-size: 10px;
   font-weight: 100;
+}
+.discover .cards .new .release-cover .h5 {
+  margin-left: 5px;
 }
 .discover .cards .new .release-cover p {
   color: #4c5767;
-  margin-top: 3px;
+  margin: 4px 0 6px 6px;
   font-size: 8px;
   font-weight: 100;
 }
+.discover .cards .new .release-cover .abs {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 2px;
+  border: 2px solid #f33232;
+  width: 18px;
+  border-radius: 1px;
+}
+.discover .cards .new .release-cover .top {
+  display: flex;
+  padding: 5px;
+  justify-content: space-between;
+  gap: 10px;
+}
+.discover .cards .new .release-cover .bottom {
+  position: absolute;
+  right: 5%;
+  bottom: 0;
+}
 
 .grid-col-big {
-  grid-auto-columns: 21%;
+  grid-auto-columns: 16%;
   gap: 15px;
 }
 
 .grid-col-small {
-  grid-auto-columns: 8%;
-  gap: 20px;
+  grid-auto-columns: 6.5%;
+  gap: 40px;
+  height: 8vh;
 }
 
 .snaps-inline {
@@ -509,8 +640,4 @@ main .master-play .active2 .wave1:nth-child(3) {
 
 .cover-img {
   height: auto;
-}
-
-.artist-img {
-  height: 8vh;
 }

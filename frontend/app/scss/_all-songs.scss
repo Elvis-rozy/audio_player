@@ -8,9 +8,12 @@ main {
   .side-bar, .discover {
     position: relative;
     width: 25%;
-    height: 90%;
     background-color: #0b101c;
     box-shadow: 5px 0 2px #090f1f;
+  }
+
+  .height-music {
+    height: 90%;
   }
 
   .side-bar {
@@ -76,12 +79,12 @@ main {
     }
 
     .songs {
-      display: flex;
       flex-direction: column;
       position: fixed;
       overflow: auto;
       width: 25.28%;
-      height: 58vh;
+      padding-bottom: 4vh;
+      height: 66vh;
 
       li {
         position: relative;
@@ -107,24 +110,79 @@ main {
           height: 32px;
         }
 
-        h5 {
-          font-size: 11px;
-          margin-left: 15px;
+        .song-details {
+          h5 {
+            font-size: 11px;
+            margin-left: 15px;
+
+          }
 
           p {
             font-size: 9px;
             padding-top: 5px;
             color: #4c5262;
-          }
-
-          img {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            right: 15px;
-            top: 16px;
+            margin-left: 15px;
           }
         }
+
+        .playico {
+          border: 1px solid #343434;
+          border-radius: 50%;
+          position: absolute;
+          transition: .1s linear;
+          width: 20px;
+          height: 20px;
+          right: 15px;
+          top: 16px;
+
+          &:hover {
+            transform: scale(.85);
+          }
+        }
+      }
+    }
+  }
+
+  .video-links {
+    justify-content: space-between;
+    flex-direction: column;
+    height: 15vh;
+    align-items: start;
+    margin-left: 20px;
+    width: 25vh;
+
+    li {
+      font-weight: 100;
+      color: #4c5767;
+      transition: .3s linear;
+      font-style: italic;
+      cursor: pointer;
+      display: flex;
+      font-size: 14px;
+
+      &:hover {
+        color: #fff;
+      }
+
+      img {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  .aboutUs {
+    position: absolute;
+    bottom: 10px;
+    left: 30px;
+    font-size: 13px;
+
+    li {
+      color: #4c5262;
+      margin-bottom: 10px;
+      transition: .3s linear;
+
+      &:hover {
+        color: #fff;
       }
     }
   }
@@ -145,13 +203,12 @@ main {
     z-index: 2;
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
     padding: 0 20px;
 
     .wave {
-      width: 30px;
       height: 30px;
       padding-bottom: 5px;
-      background: #0b1320;
       justify-content: center;
       border-radius: 5px 5px 0 0;
       display: flex;
@@ -160,7 +217,7 @@ main {
 
       .wave1 {
         width: 4px;
-        height: 10px;
+        height: 8px;
         border-radius: 10px 10px 0 0;
         background: #36e2ec;
         animation: wave unset;
@@ -169,13 +226,13 @@ main {
           margin-right: 3px;
         }
 
-        &:nth-child(2) {
-          height: 13px;
+        &:nth-child(2), &:nth-child(4), &:nth-child(6) {
+          height: 11px;
           /*animation-delay: .4s;*/
         }
 
-        &:nth-child(3) {
-          height: 8px;
+        &:nth-child(3), &:nth-child(7) {
+          height: 14px;
         /*animation-delay: .8s;*/
         }
       }
@@ -186,17 +243,23 @@ main {
       height: 35px;
     }
 
-    h5 {
-      width: 130px;
-      font-size: 13px;
-      margin-left: 15px;
-      line-height: 15px;
+    .details {
+
+      h5 {
+        width: 130px;
+        font-size: 13px;
+        margin-left: 15px;
+        line-height: 15px;
+      }
 
       p {
         font-size: 11px;
         color: #4c5262;
+        width: 130px;
+        margin-left: 15px;
       }
     }
+
 
     .icons {
       font-size: 20px;
@@ -212,7 +275,7 @@ main {
         &:nth-child(2) {
           border: 1px solid rgb(105, 105, 170, .1);
           border-radius: 50%;
-          padding: 1px 1px 0 4px;
+          padding: 1px 1px 0 2px;
           margin: 0 5px;
           transition: .3s linear;
         }
@@ -231,7 +294,7 @@ main {
 
     .bar {
       position: relative;
-      width: 38%;
+      width: 30%;
       height: 2px;
       background: rgb(105, 105, 170, .1);
       margin: 0 15px 0 10px;
@@ -291,7 +354,7 @@ main {
         position: absolute;
         top: -17px;
         left: -30px;
-        width: 25px;
+        width: 20px;
       }
 
       input {
@@ -311,6 +374,7 @@ main {
         width: 0;
         height: 100%;
         top: 0;
+        transition: .3s linear;
       }
 
       .dot {
@@ -336,8 +400,6 @@ main {
           transition: 1s linear;
         }
       }
-
-
     }
   }
 }
@@ -345,8 +407,9 @@ main {
 Vendor prefixes
 ==================================*/
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 6px;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #fff;
   border-radius: 10px;
@@ -357,9 +420,23 @@ JavaScript class wave
 main .master-play .active2 .wave1 {
   animation: wave .5s linear infinite;
 }
-main .master-play .active2 .wave1:nth-child(2) {
+main .master-play .active2 .wave1:nth-child(2), main .master-play .active2 .wave1:nth-child(4), main .master-play .active2 .wave1:nth-child(6) {
   animation-delay: .4s;
 }
-main .master-play .active2 .wave1:nth-child(3) {
+main .master-play .active2 .wave1:nth-child(3), main .master-play .active2 .wave1:nth-child(7) {
   animation-delay: .8s;
 }
+
+/* .active {
+  color: #36e2ec;
+
+  span {
+    display: none;
+  }
+
+  img {
+    display: flex;
+    margin-right: 20px;
+  }
+}
+ */

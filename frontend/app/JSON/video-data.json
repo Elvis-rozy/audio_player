@@ -1,0 +1,112 @@
+[
+  {
+    "video_name": "Scream",
+    "video_image": "images/video/scream.jpg",
+    "video_year": "2023",
+    "video_group": "HD",
+    "video_duration": "1hr 52min",
+    "video_id": 1,
+    "video_rating": "8.5",
+    "video_info": "Scream- horror single",
+    "video_src": "-------------"
+  },
+  {
+    "video_name": "AntMan and the Wasp",
+    "video_image": "images/video/antman.jpg",
+    "video_year": "2023",
+    "video_group": "HD",
+    "video_duration": "1hr 46min",
+    "video_id": 2,
+    "video_rating": "7.2",
+    "video_info": "Quantumania",
+    "video_src": "movies/Antman&wasp.mkv"
+  },
+  {
+    "video_name": "Barbie",
+    "video_image": "images/video/barbie.jpg",
+    "video_year": "2023",
+    "video_group": "4K",
+    "video_duration": "1hr 29min",
+    "video_id": 3,
+    "video_rating": "7.9",
+    "video_info": "Barbie and ken adventures",
+    "video_src": "movies/Barbie.mkv"
+  },
+  {
+    "video_name": "Creed III",
+    "video_image": "images/video/creed3.jpg",
+    "video_year": "2023",
+    "video_group": "HD",
+    "video_duration": "2hr 10min",
+    "video_id": 4,
+    "video_rating": "9.2",
+    "video_info": "You can't escape your past",
+    "video_src": "movies/Creed3.mkv"
+  },
+  {
+    "video_name": "Dungeons and Dragons",
+    "video_image": "images/video/dungeons.jpg",
+    "video_year": "2023",
+    "video_group": "4K",
+    "video_duration": "2hr 6min",
+    "video_id": 5,
+    "video_rating": "9.7",
+    "video_info": "Honor among thieves",
+    "video_src": "movies/Dungeons&Dragons.mkv"
+  },
+  {
+    "video_name": "Elementals",
+    "video_image": "images/video/elemental.jpg",
+    "video_year": "2023",
+    "video_group": "HD",
+    "video_duration": "1hr 32min",
+    "video_id": 6,
+    "video_rating": "8.5",
+    "video_info": "Love between Opposites",
+    "video_src": "movies/Elementals.mkv"
+  },
+  {
+    "video_name": "Evil Dead Rise",
+    "video_image": "images/video/evildeadrise.jpg",
+    "video_year": "2023",
+    "video_group": "4K",
+    "video_duration": "56min",
+    "video_id": 7,
+    "video_rating": "7.7",
+    "video_info": "Demon possessions",
+    "video_src": "movies/EvilDeadRise.mkv"
+  },
+  {
+    "video_name": "Extraction",
+    "video_image": "images/video/extraction2.jpg",
+    "video_year": "2023",
+    "video_group": "HD",
+    "video_duration": "2hr 36min",
+    "video_id": 8,
+    "video_rating": "8.6",
+    "video_info": "Prepare for the ride of your life",
+    "video_src": "movies/Extraction2.mkv"
+  },
+  {
+    "video_name": "The Flash",
+    "video_image": "images/video/flash.jpg",
+    "video_year": "2023",
+    "video_group": "HD",
+    "video_duration": "2hr 51min",
+    "video_id": 9,
+    "video_rating": "8.5",
+    "video_info": "Superhero action packed",
+    "video_src": "movies/Flash.mkv"
+  },
+  {
+    "video_name": "The Guardians of the Galaxy",
+    "video_image": "images/video/guardians.jpg",
+    "video_year": "2023",
+    "video_group": "4K",
+    "video_duration": "2hr 17min",
+    "video_id": 9,
+    "video_rating": "7.9",
+    "video_info": "heroes and protectors vol 4",
+    "video_src": "movies/Guardians.mkv"
+  }
+]

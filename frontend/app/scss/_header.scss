@@ -6,10 +6,12 @@
   .logo a {
     font-size: 18px;
     font-style: italic;
+    color: #bbbbe7;
 
     span {
       font-size: 26px;
       font-weight: 700;
+      color: #00BCD4;
     }
   }
 }
@@ -19,7 +21,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   height: 15%;
-  width: 90%;
+  width: 95%;
 
   .links {
     display: inline-flex;
@@ -28,17 +30,17 @@ nav {
     font-size: 16px;
     cursor: pointer;
 
-    li {
+    .li {
       transition: .3s linear;
       color: #4c5767;
 
       &:hover {
         color: #fff;
       }
+    }
 
-      &:nth-child(1) {
-        color:#36e2ec;
-      }
+    .on {
+      color:#36e2ec;
     }
   }
 }
