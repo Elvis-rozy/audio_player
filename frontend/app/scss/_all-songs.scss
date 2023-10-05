@@ -17,7 +17,7 @@ main {
   }
 
   .side-bar {
-    padding-top: 90px;
+    padding-top: 110px;
 
     .categories {
       padding-left: 20px;
@@ -84,7 +84,7 @@ main {
       overflow: auto;
       width: 25.28%;
       padding-bottom: 4vh;
-      height: 66vh;
+      height: 62vh;
 
       li {
         position: relative;
@@ -189,22 +189,117 @@ main {
 
   .discover {
     padding-left: 30px;
-    z-index: 3;
+    //z-index: 3;
     width: 75%;
     background: #010812;
     box-shadow: 1px -1px 8px #022983;
     border-radius: 10px 0 0 10px;
   }
 
+  .artiste-details {
+    flex-direction: column;
+    padding: 25px 0 10px 40px;
+    padding-left: 30px;
+    z-index: 3;
+    width: 75%;
+    height: 90%;
+    background: #010812;
+    box-shadow: 1px -1px 8px #022983;
+    border-radius: 10px 0 0 10px;
+
+    .artist-id {
+      display: flex;
+      align-items: center;
+      height: 30vh;
+      gap: 50px;
+      margin-bottom: 20px;
+
+      .artist-img {
+        height: 100%;
+        border-radius: 20px;
+      }
+
+      .details {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 50%;
+
+        p {
+          color: #4c5767;
+          font-size: 13px;
+        }
+      }
+
+      .exit-icon {
+        position: absolute;
+        transition: .3s linear;
+        padding: 10px;
+        border-radius: 50%;
+        right: 30px;
+        top: 30px;
+
+        &:hover {
+          background: rgb(105, 105, 170, .1);
+        }
+      }
+    }
+
+    .artist-songs {
+      flex-direction: column;
+      position: fixed;
+      overflow: auto;
+      width: 70%;
+      padding-bottom: 4vh;
+      height: 50vh;
+
+      li {
+        position: relative;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: .3s linear;
+
+        &:hover {
+          background: rgb(105, 105, 170, .1);
+        }
+
+        img {
+          margin-left: 25px;
+          width: 32px;
+          height: 32px;
+        }
+
+        .song-details {
+          h5 {
+            font-size: 11px;
+            margin-left: 15px;
+          }
+
+          p {
+            font-size: 9px;
+            padding-top: 5px;
+            color: #4c5262;
+            margin-left: 15px;
+          }
+        }
+      }
+    }
+  }
+
   .master-play {
+    bottom: 0px;
+    position: absolute;
     width: 100%;
-    height: 10%;
     background: #0f172d;
-    z-index: 2;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     padding: 0 20px;
+    height: 10.5%;
+    z-index: 3;
 
     .wave {
       height: 30px;
@@ -228,12 +323,10 @@ main {
 
         &:nth-child(2), &:nth-child(4), &:nth-child(6) {
           height: 11px;
-          /*animation-delay: .4s;*/
         }
 
         &:nth-child(3), &:nth-child(7) {
           height: 14px;
-        /*animation-delay: .8s;*/
         }
       }
     }
@@ -259,7 +352,6 @@ main {
         margin-left: 15px;
       }
     }
-
 
     .icons {
       font-size: 20px;
@@ -402,7 +494,29 @@ main {
       }
     }
   }
+
+  .about-section {
+    position: absolute;
+    padding: 30px 40px;
+    bottom: 0;
+    background: url("/images/background/about-bg.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background: linear-gradient(45deg, black, #5127628a, black);
+    transition: .5s linear;
+    overflow-y: hidden;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+    .card {
+      background: white;
+    }
+
+  }
 }
+
 /*================================
 Vendor prefixes
 ==================================*/
@@ -426,17 +540,3 @@ main .master-play .active2 .wave1:nth-child(2), main .master-play .active2 .wave
 main .master-play .active2 .wave1:nth-child(3), main .master-play .active2 .wave1:nth-child(7) {
   animation-delay: .8s;
 }
-
-/* .active {
-  color: #36e2ec;
-
-  span {
-    display: none;
-  }
-
-  img {
-    display: flex;
-    margin-right: 20px;
-  }
-}
- */

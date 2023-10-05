@@ -1,14 +1,14 @@
 [
   {
-    "video_name": "Scream",
-    "video_image": "images/video/scream.jpg",
+    "video_name": "Castlevania",
+    "video_image": "images/video/castlevania.jpeg",
     "video_year": "2023",
     "video_group": "HD",
     "video_duration": "1hr 52min",
     "video_id": 1,
     "video_rating": "8.5",
-    "video_info": "Scream- horror single",
-    "video_src": "-------------"
+    "video_info": "Castlevania- horror anime",
+    "video_src": "movies/Castlevania.mp4"
   },
   {
     "video_name": "AntMan and the Wasp",
@@ -33,15 +33,15 @@
     "video_src": "movies/Barbie.mkv"
   },
   {
-    "video_name": "Creed III",
-    "video_image": "images/video/creed3.jpg",
+    "video_name": "Nimona",
+    "video_image": "images/video/nimona.jpg",
     "video_year": "2023",
     "video_group": "HD",
     "video_duration": "2hr 10min",
     "video_id": 4,
     "video_rating": "9.2",
     "video_info": "You can't escape your past",
-    "video_src": "movies/Creed3.mkv"
+    "video_src": "movies/Nimona.mkv"
   },
   {
     "video_name": "Dungeons and Dragons",
@@ -55,7 +55,7 @@
     "video_src": "movies/Dungeons&Dragons.mkv"
   },
   {
-    "video_name": "Elementals",
+    "video_name": "Elemental",
     "video_image": "images/video/elemental.jpg",
     "video_year": "2023",
     "video_group": "HD",
@@ -63,7 +63,7 @@
     "video_id": 6,
     "video_rating": "8.5",
     "video_info": "Love between Opposites",
-    "video_src": "movies/Elementals.mkv"
+    "video_src": "movies/Elemental.mkv"
   },
   {
     "video_name": "Evil Dead Rise",
@@ -104,7 +104,7 @@
     "video_year": "2023",
     "video_group": "4K",
     "video_duration": "2hr 17min",
-    "video_id": 9,
+    "video_id": 10,
     "video_rating": "7.9",
     "video_info": "heroes and protectors vol 4",
     "video_src": "movies/Guardians.mkv"
