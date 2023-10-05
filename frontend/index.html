@@ -30,21 +30,22 @@
       </ul>
       <!--===== Contact Section =====-->
       <ul class="aboutUs">
-        <li>About</li>
-        <li>Contact Us</li>
+        <li class="about">About</li>
+        <li class="about">Contact Us</li>
       </ul>
     </section>
 
     <section class="discover height-music">
       <nav class="nav-bar">
         <ul class="links">
-          <li class="on li">Discover</li><!----><li class="li">Favorites</li><!----><li class="li">About</li><!----><li class="li">Contact Us</li>
+          <li class="on li discovr">Discover</li><!----><li class="about li">About</li><!----><li class="about li">Contact Us</li>
         </ul>
         <div class="search-form">
           <img src="images/icons/search.svg" alt="search icon">
-          <input type="search" id="search-bar" name="search-bar" placeholder="Search ...">
+          <input type="search" id="search-bar" name="search-bar" placeholder="Search music...">
         </div>
       </nav>
+
       <div class="playing">
         <img class="active-img" src="images/background/alan-walker.jpg" alt="album cover">
         <h1 class="activeSongName">Alan Walker - Faded</h1>
@@ -52,14 +53,18 @@
           us, Another start<br>you fade away. Afraid our aim
           is out of sight wanna see us alive.
         </p>
-        <div class="buttons">
-          <button class="cta-on button">PLAY</button>
-          <button class="button">FOLLOW</button>
-        </div>
       </div>
+
       <div class="cards music-arr">
         <h3>Popular Songs</h3>
         <div class="new grid-col-big snaps-inline"></div>
+      </div>
+
+      <div class="results cards">
+        <h3>Search Results</h3>
+        <p class="text"></p>
+        <div class="search grid-col-big snaps-inline">
+        </div>
       </div>
 
       <div class="cards movie-arr">
@@ -77,6 +82,23 @@
         <h3>Popular Artists</h3>
         <div class="new grid-col-small snaps-inline"></div>
       </div>
+    </section>
+
+    <section class="artiste-details">
+      <div class="artist-id">
+        <img class="artist-img" src="images/artists/rihanna1.jpg" alt="">
+        <div class="details">
+          <h3>Artiste name</h3>
+          <p>Artist info
+            Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Impedit at fugit est laudantium
+            aperiam optio asperiores cumque, nemo iure,
+            obcaecati ad voluptatum corrupti, beatae
+            laboriosam saepe nisi inventore nobis blanditiis?</p>
+        </div>
+        <img class="exit-icon" src="images/icons/x-lg.svg" alt="">
+      </div>
+      <div class="artist-songs"><ul class="artistOnlySongs"></ul></div>
     </section>
 
     <section class="master-play">
@@ -114,9 +136,13 @@
       </div>
     </section>
 
-    <section class="video-playing">
-      <video class="active-video" src="" controls></video>
+    <section class="about-section reg-heit">
+      <div class="first card"></div>
+      <div class="second card"></div>
+      <div class="third card"></div>
     </section>
+
+    <video id="vid" class="active-video" src="" controls></video>
 
   </main>
   <script src="app/js/script.js"></script>
