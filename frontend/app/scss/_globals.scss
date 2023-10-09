@@ -51,6 +51,99 @@ button {
   }
 }
 
+/*=========================================
+Mobile menu Styles
+=========================================*/
+.menu-icon {
+  cursor: pointer;
+
+  span {
+      @include width-height ("26px", "2px");
+      background: var(--text-color-dark);
+      transition: transform .4s;
+      display: block;
+
+      &:not(:last-child) {
+          margin-bottom: 5px;
+      }
+  }
+}
+/*=========================================
+Menu Open Action
+=========================================*/
+.menu-open {
+
+  span:first-child {
+      transform: translateY(6px) rotate(45deg);
+      background-color: var(--cta);
+      transform-origin: 45%;
+  }
+
+  span:nth-child(2) {
+      opacity: 0;
+  }
+
+  span:last-child {
+      transform: translateY(-6px) rotate(-45deg);
+      background-color: var(--cta);
+      transform-origin: 45%;
+  }
+}
+/*=========================================
+Menu Links Action
+=========================================*/
+.nav-open {
+
+  &.mobile-menu {
+      transform: translateX(0);
+  }
+}
+/*=========================================
+Mobile menu Styles
+=========================================*/
+.mobile-menu {
+  @include width-height ("70%", "100%");
+  background: rgba(0, 0, 0, 0.39);
+  transform: translateX(500px);
+  border-radius: 5px 0 0 5px;
+  text-align: center;
+  font-size: 22px;
+  position: fixed;
+  transition: .3s;
+  z-index: 20;
+  right: 0;
+  top: 0;
+
+  ul {
+      @include Display-justify ("flex", "center");
+      @include width-height ("100%", "100%");
+      flex-direction: column;
+
+      li:last-child {
+          margin-right: 30px;
+      }
+
+      li{
+          padding: 20px 0;
+          transition: .3s;
+
+          a {
+              color: var(--background-light-gray);
+              transition: .3s;
+          }
+
+          &:hover {
+              background: rgb(0 0 0 / 36%);
+              border-radius: 0 20px 20px 0;
+
+              a{
+                  color: var(--cta);
+              }
+          }
+      }
+  }
+}
+
 .cta-on {
   color: #fff;
   transform: scale(.98);
