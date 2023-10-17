@@ -33,6 +33,7 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('new-release/', views.newAlbumRelease, name='new-release'),
+    path('artist/<str:id>/top-tracks/', views.get_artist_top_tracks, name='get_artist_top_tracks'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0),
          name='schema-swagger-ui')
 ]
