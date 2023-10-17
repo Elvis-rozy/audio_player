@@ -59,15 +59,17 @@ INSTALLED_APPS = [
 ]
 
 SWAGGER_SETTINGS = {
-    'USE_SESSION_AUTH': False,
-    'api_version': '1.0',
-    'enabled_methods': ['get', 'post', 'put', 'patch', 'delete'],
-    'SECURITY_DEFINITIONS': {
-        'basic': {
-            'type': 'basic'
-        }
-    },
+    'DEFAULT_INFO': 'your_project.urls.swagger_info',
 }
+    # 'USE_SESSION_AUTH': False,
+    # 'api_version': '1.0',
+    # 'enabled_methods': ['get', 'post', 'put', 'patch', 'delete'],
+    # 'SECURITY_DEFINITIONS': {
+    #     'basic': {
+    #         'type': 'basic'
+        # }
+#     },
+# }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

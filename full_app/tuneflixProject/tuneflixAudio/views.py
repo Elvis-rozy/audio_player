@@ -9,6 +9,12 @@ import requests
 import base64
 from django.conf import settings
 import time
+from rest_framework.views import APIView
+from drf_yasg import openapi
+from drf_yasg.utils import swagger_auto_schema
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
 
 
 # Initialize variables for access token and its expiration timestamp
@@ -52,6 +58,7 @@ def refresh_access_token(client_id, client_secret):
         print(f"An error occurred during token refresh: {str(e)}")
         return None
 
+@api_view(['GET'])
 def newAlbumRelease(request):
     global access_token
     global token_expiration
@@ -102,7 +109,18 @@ def newAlbumRelease(request):
     
 
 
-def get_artist_top_tracks(requests, id):
+@api_view(['GET'])
+@swagger_auto_schema(
+    manual_parameters=[
+        openapi.Parameter(
+            'country',
+            openapi.IN_QUERY,
+            description="Country code for the top tracks (e.g., US)",
+            type=openapi.TYPE_STRING,
+        )
+    ]
+)
+def get_artist_top_tracks(request, id):
     global access_token
     global token_expiration
 
@@ -118,18 +136,18 @@ def get_artist_top_tracks(requests, id):
         access_token = refresh_access_token(client_id, client_secret)
 
         if not access_token:
-            return JsonResponse({'error': 'Access token refresh failed'}, status=500)
+            return Response({'error': 'Access token refresh failed'}, status=500)
 
         # Update the token expiration timestamp
         token_expiration = int(time.time()) + 3600
 
+     # Retrieve the "country" query parameter from the request
+    country = request.query_params.get('country', 'US')  # Default to 'US' if not provided
+    
     # Spotify API endpoint for an artist's top tracks
     base_url = 'https://api.spotify.com/v1'
-    artist_top_tracks_url = f'{base_url}/artists/{id}/top-tracks'
+    artist_top_tracks_url = f'{base_url}/artists/{id}/top-tracks?country={country}'
    
-    # Your view function code here
-
-
     # Set up headers for authorization using the access token
     headers = {
         'Authorization': f'Bearer {access_token}',
@@ -144,11 +162,113 @@ def get_artist_top_tracks(requests, id):
             # Extract the relevant data from the JSON response
             tracks = data.get('tracks', [])
 
-            # Return the data as a JSON response
-            return JsonResponse({'tracks': tracks})
+            # Return the data as a DRF Response
+            return Response({'tracks': tracks})
         else:
             # Handle error when retrieving data from Spotify
-            return JsonResponse({'error': f'Failed to fetch data from Spotify: {response.content.decode()}'}, status=500)
+            return Response({'error': f'Failed to fetch data from Spotify: {response.content.decode()}'}, status=500)
     except requests.exceptions.RequestException as e:
         # Handle request exception
-        return JsonResponse({'error': f'An error occurred: {str(e)}'}, status=500)
+        return Response({'error': f'An error occurred: {str(e)}'}, status=500)
+
+
+class GetPlaylistDetails(APIView):
+    def get(self, request, playlist_id):
+        # Your Spotify API credentials (retrieved from settings.py)
+        client_id = settings.SPOTIFY_CLIENT_ID
+        client_secret = settings.SPOTIFY_CLIENT_SECRET
+
+        current_time = int(time.time())  # Get the current timestamp
+
+        # Check if the access token has expired or doesn't exist
+        if not access_token or current_time >= token_expiration:
+            # Token has expired or is not available, refresh it
+            access_token = refresh_access_token(client_id, client_secret)
+
+            if not access_token:
+                return Response({'error': 'Access token refresh failed'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+        # Spotify API endpoint to get playlist details
+        base_url = 'https://api.spotify.com/v1'
+        playlist_url = f'{base_url}/playlists/{playlist_id}'
+
+        # Set up headers for authorization using the access token
+        headers = {
+            'Authorization': f'Bearer {access_token}',
+        }
+
+        try:
+            # Make a GET request to get playlist details
+            response = requests.get(playlist_url, headers=headers)
+
+            if response.status_code == 200:
+                playlist_data = response.json()
+
+                # Extract the relevant data from the JSON response
+                # Here, you can choose which information to include in the response
+                playlist_details = {
+                    'name': playlist_data.get('name'),
+                    'description': playlist_data.get('description'),
+                    # Add more details as needed
+                }
+
+                return Response({'playlist': playlist_details}, status=status.HTTP_200_OK)
+            else:
+                # Handle error when retrieving data from Spotify
+                return Response({'error': f'Failed to fetch data from Spotify: {response.content.decode()}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        except requests.exceptions.RequestException as e:
+            # Handle request exception
+            return Response({'error': f'An error occurred: {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+
+# def get_artist_top_tracks():
+#     global access_token
+#     global token_expiration
+
+#     # Your Spotify API credentials (retrieved from settings.py)
+#     client_id = settings.SPOTIFY_CLIENT_ID
+#     client_secret = settings.SPOTIFY_CLIENT_SECRET
+
+#     current_time = int(time.time())  # Get the current timestamp
+
+#     # Check if the access token has expired or doesn't exist
+#     if not access_token or current_time >= token_expiration:
+#         # Token has expired or is not available, refresh it
+#         access_token = refresh_access_token(client_id, client_secret)
+
+#         if not access_token:
+#             return JsonResponse({'error': 'Access token refresh failed'}, status=500)
+
+#         # Update the token expiration timestamp
+#         token_expiration = int(time.time()) + 3600
+
+#     # Spotify API endpoint for an artist's top tracks
+#     base_url = 'https://api.spotify.com/v1'
+#     artist_top_tracks_url = f'{base_url}/artists/{id}/top-tracks'
+   
+#     # Your view function code here
+
+
+#     # Set up headers for authorization using the access token
+#     headers = {
+#         'Authorization': f'Bearer {access_token}',
+#     }
+
+#     try:
+#         # Make a GET request to get the artist's top tracks
+#         response = requests.get(artist_top_tracks_url, headers=headers)
+
+#         if response.status_code == 200:
+#             data = response.json()
+#             # Extract the relevant data from the JSON response
+#             tracks = data.get('tracks', [])
+
+#             # Return the data as a JSON response
+#             return JsonResponse({'tracks': tracks})
+#         else:
+#             # Handle error when retrieving data from Spotify
+#             return JsonResponse({'error': f'Failed to fetch data from Spotify: {response.content.decode()}'}, status=500)
+#     except requests.exceptions.RequestException as e:
+#         # Handle request exception
+#         return JsonResponse({'error': f'An error occurred: {str(e)}'}, status=500)
