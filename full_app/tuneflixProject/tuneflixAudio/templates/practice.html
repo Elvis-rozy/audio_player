@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--===== Link to Stylesheet =====-->
+  <!-- <link rel="stylesheet" href="css/style.css"> -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
+
+  <!--===== Page Title=====-->
+  <title>tuneflix home</title>
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo">
+      <a href="#">tune<span>flix</span></a>
+    </div>
+  </header>
+  <!--===== Hero section =====-->
+  <main>
+    <!--===== Sidebar =====-->
+    <section class="side-bar">
+      <div class="categories">
+        <h4 class="active sect music"><span></span><img src="{% static 'images/icons/music-note-beamed.svg' %}" alt="">Music</h4>
+        <h4 class="sect video"><span></span><img src="{% static 'images/icons/video-play.svg" alt="' %}">Videos</h4>
+      </div>
+      <ul class="songs"></ul>
+      <ul class="video-links">
+        <li><img src="{% static 'images/icons/search.svg' %}" alt="">Web Series</li>
+        <li><img src="{% static 'images/icons/search.svg' %}" alt="">Tv Shows</li>
+        <li><img src="{% static 'images/icons/search.svg' %}" alt="">Movies</li>
+      </ul>
+      <!--===== Contact Section =====-->
+      <ul class="aboutUs">
+        <li class="about">About</li>
+        <li class="about">Contact Us</li>
+      </ul>
+    </section>
+
+    <section class="discover height-music">
+      <nav class="nav-bar">
+        <ul class="links">
+          <li class="on li discovr">Discover</li><!----><li class="about li">About</li><!----><li class="about li">Contact Us</li>
+        </ul>
+        <div class="search-form">
+          <img src="images/icons/search.svg" alt="search icon">
+          <input type="search" id="search-bar" name="search-bar" placeholder="Search music...">
+        </div>
+      </nav>
+
+      <div class="playing">
+        <img class="active-img" src="images/background/alan-walker.jpg" alt="album cover">
+        <h1 class="activeSongName">Alan Walker - Faded</h1>
+        <p class="activeSongDesc">You were the shadow to my light did you feel
+          us, Another start<br>you fade away. Afraid our aim
+          is out of sight wanna see us alive.
+        </p>
+      </div>
+
+      <div class="cards music-arr">
+        <h3>Popular Songs</h3>
+        <div class="new grid-col-big snaps-inline"></div>
+      </div>
+
+      <div class="results cards">
+        <h3>Search Results</h3>
+        <p class="text"></p>
+        <div class="search grid-col-big snaps-inline">
+        </div>
+      </div>
+</body>
+</html>
