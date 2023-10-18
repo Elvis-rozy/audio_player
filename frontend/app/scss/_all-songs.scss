@@ -210,12 +210,13 @@ main {
     .artist-id {
       display: flex;
       align-items: center;
-      height: 30vh;
+      height: 20vh;
       gap: 50px;
       margin-bottom: 20px;
 
       .artist-img {
         height: 100%;
+        width: 20%;
         border-radius: 20px;
       }
 
@@ -250,8 +251,7 @@ main {
       position: fixed;
       overflow: auto;
       width: 70%;
-      padding-bottom: 4vh;
-      height: 50vh;
+      height: 60vh;
 
       li {
         position: relative;

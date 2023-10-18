@@ -1,3 +1,4 @@
+//All the html elements assigned to variables
 /* eslint-disable no-unused-vars */
 const button = document.querySelectorAll(".button");
 const video = document.querySelector(".video");
@@ -46,54 +47,7 @@ const  icons = document.querySelector(".icons");
 const  bar = document.querySelector(".bar");
 const  volume = document.querySelector(".vol");
 
-discoverBtn.onclick = ()=> {
-  aboutSection.classList.remove("in-view");
-  aboutSection.classList.add("reg-heit");
-  discover.style.background = "#010812";
-  side_bar.style.background = "#0b101c";
-
-  master_play.style.display = "flex";
-
-  waves.style.display = "flex";
-  track_image.style.display = "block";
-  details.style.display = "block";
-  icons.style.display = "block";
-  currentStart.style.display = "block";
-  bar.style.display = "block";
-  currentEnd.style.display = "block";
-  volume.style.display = "block";
-
-  categories.style.visibility = "visible";
-  sideBarSection.style.visibility = "visible";
-  top_image.style.visibility = "visible";
-  music_cards.style.visibility = "visible";
-  artist_cards.style.visibility = "visible";
-};
-
-aboutBtn.forEach((btn) => {
-  btn.onclick = () => {
-    aboutSection.classList.remove("reg-heit");
-    aboutSection.classList.add("in-view");
-    discover.style.background = "#0f0114";
-    side_bar.style.background = "#000";
-
-    master_play.style.display = "none";
-
-    waves.style.display = "none";
-    track_image.style.display = "none";
-    details.style.display = "none";
-    icons.style.display = "none";
-    currentStart.style.display = "none";
-    bar.style.display = "none";
-    currentEnd.style.display = "none";
-    volume.style.display = "none";
-
-    categories.style.visibility = "hidden";
-    sideBarSection.style.visibility = "hidden";
-    top_image.style.visibility = "hidden";
-  };
-});
-
+//All the html elements assigned to variables
 let title = document.querySelector("#title");
 let artist = document.querySelector("#artist");
 let track_image = document.querySelector("#track_image");
@@ -121,14 +75,66 @@ let vol_dot = document.getElementById("vol-dot");
 let vol_bar= document.getElementsByClassName("vol-bar")[0];
 
 let disc = document.getElementById("vid");
+/*========================================*/
 
+//DISCOVER link action controls
+discoverBtn.onclick = ()=> {
+  aboutSection.classList.remove("in-view");
+  aboutSection.classList.add("reg-heit");
+  discover.style.background = "#010812";
+  side_bar.style.background = "#0b101c";
+
+  master_play.style.display = "flex";
+  waves.style.display = "flex";
+  track_image.style.display = "block";
+  details.style.display = "block";
+  icons.style.display = "block";
+  currentStart.style.display = "block";
+  bar.style.display = "block";
+  currentEnd.style.display = "block";
+  volume.style.display = "block";
+
+  categories.style.visibility = "visible";
+  sideBarSection.style.visibility = "visible";
+  top_image.style.visibility = "visible";
+  music_cards.style.visibility = "visible";
+  artist_cards.style.visibility = "visible";
+};
+
+//ABOUT link action controls
+aboutBtn.forEach((btn) => {
+  btn.onclick = () => {
+    aboutSection.classList.remove("reg-heit");
+    aboutSection.classList.add("in-view");
+    discover.style.background = "#0f0114";
+    side_bar.style.background = "#000";
+
+    master_play.style.display = "none";
+
+    waves.style.display = "none";
+    track_image.style.display = "none";
+    details.style.display = "none";
+    icons.style.display = "none";
+    currentStart.style.display = "none";
+    bar.style.display = "none";
+    currentEnd.style.display = "none";
+    volume.style.display = "none";
+
+    categories.style.visibility = "hidden";
+    sideBarSection.style.visibility = "hidden";
+    top_image.style.visibility = "hidden";
+  };
+});
+
+//Buttons active state controls
+/*
 button.forEach((btn) => {
   btn.addEventListener("click", function () {
     button.forEach(btn => btn.classList.remove("cta-on"));
     this.classList.add("cta-on");
   });
 });
-
+*/
 section.forEach((sect) => {
   sect.addEventListener("click", function () {
     section.forEach(sect => sect.classList.remove("active"));
@@ -143,6 +149,7 @@ sectionB.forEach((sect) => {
   });
 });
 
+//Showing only Music related interface data
 music.onclick=() =>{
   music_cards.style.display = "block";
   artist_cards.style.display = "block";
@@ -151,34 +158,40 @@ music.onclick=() =>{
   songs.style.display = "block";
   nav.style.display = "flex";
 
+  //hiding all interface data relating to the video section
   top_movie_cards.style.display = "none";
   movie_cards.style.display = "none";
   video_links.style.display = "none";
   aboutUs.style.display = "none";
 
+  //adjusting height to contain all music data
   side_bar.classList.add("height-music");
   discover.classList.add("height-music");
 };
 
+//The function that displays video section
 video.addEventListener("click", () => {
   track.pause();
-  playbtn.src = "images/icons/play-fill.svg";
+  playbtn.src = "/images/icons/play-fill.svg";
   wave.classList.remove("active2");
 
-  //fetch API data containing all audio details
-  fetch("app/JSON/video-data-2.json")
+  //fetch API data containing all top video section details
+  fetch("/app/JSON/video-data-2.json")
   .then(response => response.json())
   .then(data => {
+    //calling the display and play functions for the top videos
     displayTopVideoItem(data);
     playTopVideo(data);
   });
 
-  fetch("app/JSON/video-data.json")
+  //fetch API data containing all video section details
+  fetch("/app/JSON/video-data.json")
   .then(response => response.json())
   .then(data => {
-    //calling the display functions for the categories page
+    //calling the display and play functions for the videos
     displayVideoItem(data);
     playVideo(data);
+    //hiding all interface data relating to the music section
     music_cards.style.display = "none";
     artist_cards.style.display = "none";
     master_play.style.display = "none";
@@ -186,16 +199,84 @@ video.addEventListener("click", () => {
     songs.style.display = "none";
     nav.style.display = "none";
 
+    //displaying video related interface data
     top_movie_cards.style.display = "block";
     movie_cards.style.display = "block";
     video_links.style.display = "flex";
     aboutUs.style.display = "block";
 
+
+    //adjusting height to contain all video data
     side_bar.classList.remove("height-music");
     discover.classList.remove("height-music");
   }).catch(error => console.error(error));
 });
 
+//The function that displays TOPVIDEO SECTION
+function displayTopVideoItem (videoitems) {
+  let displayVideos = videoitems.map((item) => {
+    return `<article id="${item.video_id}" class="release-cover rectgle video-height">
+        <img id="${item.video_id}" class="topvidplay" onclick="playTopVideo()" src="images/icons/video-play.svg" alt="play icon">
+        <img class="video-size" src=${item.video_image}  alt="">
+        <div class="top">
+          <h5 id="${item.video_id}">${item.video_name}</h5>
+          <h5>${item.video_year}</h5>
+        </div>
+        <p class="item-text abs">${item.video_group}</p>
+        <div class="bottom">
+          <p class="item-text">${item.video_duration}</p>
+          <p class="item-text">${item.video_rating}</p>
+        </div>
+      </article>`;
+  });
+  displayVideos = displayVideos.join("");
+  topMovieSection.innerHTML = displayVideos;
+}
+
+//The function that plays  video from TOP VIDEOS Section
+function playTopVideo (vid) {
+  let indz = 0;
+  let nw_playing = false;
+  Array.from(document.getElementsByClassName("topvidplay")).forEach((elem)=>{
+    elem.addEventListener("click", (e) => {
+      if (nw_playing == false) {
+        indz = e.target.id;
+        videoSection.style.display = "flex";
+        indz -= 1;
+        disc.src = vid[indz].video_src;
+        nw_playing = true;
+        disc.play();
+      } else {
+        videoSection.style.display = "none";
+        nw_playing = false;
+        disc.pause();
+      }
+    });
+  });
+}
+
+//The function that displays NEW RELEASES section
+function displayVideoItem (videoitems) {
+  let displayVideos = videoitems.map((item) => {
+    return `<article id="${item.video_id}" class="release-cover rectgle video-height">
+        <img id="${item.video_id}" class="vidplay" onclick="playVideo()" src="images/icons/video-play.svg" alt="play icon">
+        <img class="video-size" src="${item.video_image}" alt="">
+        <div class="top">
+          <h5 id="${item.video_id}">${item.video_name}</h5>
+          <h5>${item.video_year}</h5>
+        </div>
+        <p class="item-text abs">${item.video_group}</p>
+        <div class="bottom">
+          <p class="item-text">${item.video_duration}</p>
+          <p class="item-text">${item.video_rating}</p>
+        </div>
+      </article>`;
+  });
+  displayVideos = displayVideos.join("");
+  movieSection.innerHTML = displayVideos;
+}
+
+//The function that plays  video from POPULAR VIDEOS Section
 function playVideo (vid) {
   let indz = 0;
   let nw_playing = false;
@@ -218,69 +299,7 @@ function playVideo (vid) {
   });
 }
 
-function playTopVideo (vid) {
-  let indz = 0;
-  let nw_playing = false;
-  Array.from(document.getElementsByClassName("topvidplay")).forEach((elem)=>{
-    elem.addEventListener("click", (e) => {
-      if (nw_playing == false) {
-        indz = e.target.id;
-        videoSection.style.display = "flex";
-        indz -= 1;
-        console.log(indz);
-        disc.src = vid[indz].video_src;
-        nw_playing = true;
-        disc.play();
-      } else {
-        videoSection.style.display = "none";
-        nw_playing = false;
-        disc.pause();
-      }
-    });
-  });
-}
-
-function displayVideoItem (videoitems) {
-  let displayVideos = videoitems.map((item) => {
-    return `<article id="${item.video_id}" class="release-cover rectgle video-height">
-        <img id="${item.video_id}" class="vidplay" onclick="playVideo()" src="images/icons/video-play.svg" alt="play icon">
-        <img class="video-size" src="${item.video_image}" alt="">
-        <div class="top">
-          <h5 id="${item.video_id}">${item.video_name}</h5>
-          <h5>${item.video_year}</h5>
-        </div>
-        <p class="item-text abs">${item.video_group}</p>
-        <div class="bottom">
-          <p class="item-text">${item.video_duration}</p>
-          <p class="item-text">${item.video_rating}</p>
-        </div>
-      </article>`;
-  });
-  displayVideos = displayVideos.join("");
-  movieSection.innerHTML = displayVideos;
-}
-
-function displayTopVideoItem (videoitems) {
-  let displayVideos = videoitems.map((item) => {
-    return `<article id="${item.video_id}" class="release-cover rectgle video-height">
-        <img id="${item.video_id}" class="topvidplay" onclick="playTopVideo()" src="images/icons/video-play.svg" alt="play icon">
-        <img class="video-size" src=${item.video_image}  alt="">
-        <div class="top">
-          <h5 id="${item.video_id}">${item.video_name}</h5>
-          <h5>${item.video_year}</h5>
-        </div>
-        <p class="item-text abs">${item.video_group}</p>
-        <div class="bottom">
-          <p class="item-text">${item.video_duration}</p>
-          <p class="item-text">${item.video_rating}</p>
-        </div>
-      </article>`;
-  });
-  displayVideos = displayVideos.join("");
-  topMovieSection.innerHTML = displayVideos;
-}
-
-//function that displays All music section
+//function that displays music search results
 function displaySearchItem(songItems) {
   let displaySongs = songItems.map((item) => {
     return `<article id="${item.song_id}" class="release-cover rectgle">
@@ -294,8 +313,8 @@ function displaySearchItem(songItems) {
   searchSection.innerHTML = displaySongs;
 }
 
-//function that displays All music section
-function displaySongItem(songItems) {
+//The function that displays NEW RELEASES section
+function displayNewReleasesItem(songItems) {
   let displaySongs = songItems.map((item) => {
     return `<article id="${item.song_id}" class="release-cover rectgle">
         <img id="${item.song_id}" class="icon" src="images/icons/video-play.svg" alt="play icon">
@@ -304,18 +323,26 @@ function displaySongItem(songItems) {
         <p class="item-text">${item.song_info}</p>
       </article>`;
   });
+  //After returning the html article,
+  //it joins it to the next item on the array to be displayed.
+  //If no next item, it stops.
   displaySongs = displaySongs.join("");
+  //renders the array in the html file section "musicSection"
   musicSection.innerHTML = displaySongs;
 }
 
-//function that displays Artists section
+//The function that displays ARTIST section
 function displayArtistItem(artistItems) {
   let displayArtists = artistItems.map((item) => {
     return `<article class="release-cover circle">
       <img id="${item.artist_id}"  class="artist-img" src="${item.artist_image}" alt="">
     </article>`;
   });
+  //After returning the html article,
+  //it joins it to the next item on the array to be displayed.
+  //If no next item, it stops.
   displayArtists = displayArtists.join("");
+  //renders the array in the html file section "artistSection"
   artistSection.innerHTML = displayArtists;
 }
 
@@ -332,9 +359,18 @@ function displaySidebarSongs(sideItems) {
       <img id="${item.song_id}" class="playico" src="images/icons/play-circle-fill.svg" alt="">
     </li>`;
   });
+  //After returning the html article,
+  //it joins it to the next item on the array to be displayed.
+  //If no next item, it stops.
   displaySideSongs = displaySideSongs.join("");
+  //renders the array in the html file section "sideBarSection"
   sideBarSection.innerHTML = displaySideSongs;
 }
+
+const artistInfoSection = document.querySelector(".artist-id");
+const artistImage = document.querySelector(".artist-img");
+const artistName = document.querySelector(".artistName");
+const artistInfo = document.querySelector(".artistInfo");
 
 //function that displays Artist songs section
 function displayArtistSongs(sideItems) {
@@ -347,21 +383,26 @@ function displayArtistSongs(sideItems) {
       </div>
     </li>`;
   });
+  //After returning the html article,
+  //it joins it to the next item on the array to be displayed.
+  //If no next item, it stops.
   displaySideSongs = displaySideSongs.join("");
+  //renders the array in the html file section "artistSongsSection"
   artist_songs_section.innerHTML = displaySideSongs;
 }
 
-//listening on page load to create categories page elements
+//Listening on page load to create music page elements
 window.addEventListener("DOMContentLoaded", () => {
   //fetch API data containing all audio details
-  fetch("app/JSON/audiodata.json").then(response => response.json())
+  fetch("/app/JSON/audiodata.json").then(response => response.json())
   .then(data => {
 
-    //calling the display functions for the categories page
-    displaySongItem(data);
+    //calling the display functions for the music page
+    displayNewReleasesItem(data);
     displayArtistItem(data);
     displaySidebarSongs(data);
 
+    //Hiding all other inteface that is not part of the home page(music section)
     searchResultSection.style.display = "none";
     movie_cards.style.display = "none";
     top_movie_cards.style.display = "none";
@@ -397,6 +438,7 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     });
 
+    //Load new track function
     function load_track (index) {
       track.src =  data[index].audio_src;
       title.innerHTML = data[index].song_name;
@@ -405,40 +447,44 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     load_track(index);
 
+    //Next button setup
     next.onclick = function () {
       index++;
       load_track(index);
       track.play();
-      playbtn.src = "images/icons/pause-fill.svg";
+      playbtn.src = "/images/icons/pause-fill.svg";
     };
 
+    //Previous button setup
     prev.onclick = function () {
       index--;
       load_track(index);
       track.play();
-      playbtn.src = "images/icons/pause-fill.svg";
+      playbtn.src = "/images/icons/pause-fill.svg";
     };
 
+    //Play button setup
     playbtn.onclick = function play () {
       if (track.paused || track.currentTime <= 0) {
         track.play();
-        playbtn.src = "images/icons/pause-fill.svg";
+        playbtn.src = "/images/icons/pause-fill.svg";
         wave.classList.add("active2");
       } else {
         track.pause();
-        playbtn.src = "images/icons/play-fill.svg";
+        playbtn.src = "/images/icons/play-fill.svg";
         wave.classList.remove("active2");
       }
     };
 
+    //Individual music play button setup (Side bar section)
     let indx = 0;
     let playing = false;
     Array.from(document.getElementsByClassName("playico")).forEach((element)=>{
       element.addEventListener("click", (e) => {
         if (playing == false) {
           indx = e.target.id;
-          e.target.src = "images/icons/pause-fill.svg";
-          playbtn.src = "images/icons/pause-fill.svg";
+          e.target.src = "/images/icons/pause-fill.svg";
+          playbtn.src = "/images/icons/pause-fill.svg";
           playing = true;
           track.src = data[indx].audio_src;
           track.play();
@@ -450,8 +496,8 @@ window.addEventListener("DOMContentLoaded", () => {
           artist.innerHTML = data[indx].artist_name;
           title.innerHTML = data[indx].song_name;
         } else {
-          e.target.src = "images/icons/play-circle-fill.svg";
-          playbtn.src = "images/icons/play-fill.svg";
+          e.target.src = "/images/icons/play-circle-fill.svg";
+          playbtn.src = "/images/icons/play-fill.svg";
           track.src = data[indx].audio_src;
           playing = false;
           track.pause();
@@ -460,18 +506,16 @@ window.addEventListener("DOMContentLoaded", () => {
       });
     });
 
+    //Individual music play button setup (Search result section)
     let ind = 0;
     let curr_playing = false;
     Array.from(document.getElementsByClassName("ico")).forEach((element)=>{
       element.addEventListener("click", (e) => {
-        console.log(ind);
-
         if (curr_playing == false) {
           ind = e.target.id;
-          e.target.src = "images/icons/pause-fill.svg";
-          playbtn.src = "images/icons/pause-fill.svg";
+          e.target.src = "/images/icons/pause-fill.svg";
+          playbtn.src = "/images/icons/pause-fill.svg";
           curr_playing = true;
-          console.log(ind);
           track.src = data[ind].audio_src;
           track.play();
           wave.classList.add("active2");
@@ -480,8 +524,8 @@ window.addEventListener("DOMContentLoaded", () => {
           artist.innerHTML = data[ind].artist_name;
           title.innerHTML = data[ind].song_name;
         } else {
-          e.target.src = "images/icons/play-circle-fill.svg";
-          playbtn.src = "images/icons/play-fill.svg";
+          e.target.src = "/images/icons/play-circle-fill.svg";
+          playbtn.src = "/images/icons/play-fill.svg";
           track.src = data[ind].audio_src;
           curr_playing = false;
           track.pause();
@@ -490,25 +534,25 @@ window.addEventListener("DOMContentLoaded", () => {
       });
     });
 
+    //Individual music play button setup (New releases section)
     let indix = 0;
     let now_playing = false;
     Array.from(document.getElementsByClassName("icon")).forEach((elem)=>{
       elem.addEventListener("click", (e) => {
         if (now_playing == false) {
           indix = e.target.id;
-          e.target.src = "images/icons/pause-fill.svg";
-          playbtn.src = "images/icons/pause-fill.svg";
+          e.target.src = "/images/icons/pause-fill.svg";
+          playbtn.src = "/images/icons/pause-fill.svg";
           now_playing = true;
           track.src = data[indix].audio_src;
-
           track.play();
           wave.classList.add("active2");
           track_image.src = data[indix].song_image;
           artist.innerHTML = data[indix].artist_name;
           title.innerHTML = data[indix].song_name;
         } else {
-          e.target.src = "images/icons/video-play.svg";
-          playbtn.src = "images/icons/play-fill.svg";
+          e.target.src = "/images/icons/video-play.svg";
+          playbtn.src = "/images/icons/play-fill.svg";
           track.src = data[indix].audio_src;
           now_playing = false;
           track.pause();
@@ -517,25 +561,60 @@ window.addEventListener("DOMContentLoaded", () => {
       });
     });
 
+    //Individual artist display (Popular Artist Selection setup)
     let inx = 0;
     Array.from(document.getElementsByClassName("circle")).forEach((element)=>{
       element.addEventListener("click", (e) => {
         inx = e.target.id;
+        artistImage.src = data[inx-1].artist_image;
+        artistName.innerHTML = data[inx-1].artist_name;
+        //artistInfo.innerHTML = data[inx-1].artist_info;
         discover.style.display = "none";
         artist_details.style.display = "block";
         displayArtistSongs(data);
       });
     });
+
+    //Individual music play button setup (Artist selected music section)
+/*
+    let inix = 0;
+    let now_play = false;
+    Array.from(document.getElementsByClassName("songListItem")).forEach((elem)=>{
+      elem.addEventListener("click", (e) => {
+        console.log("clicker");
+        if (now_play == false) {
+          inix = e.target.id;
+          //e.target.src = "/images/icons/pause-fill.svg";
+          playbtn.src = "/images/icons/pause-fill.svg";
+          now_play = true;
+          track.src = data[inix].audio_src;
+          track.play();
+          wave.classList.add("active2");
+          track_image.src = data[inix].song_image;
+          artist.innerHTML = data[inix].artist_name;
+          title.innerHTML = data[inix].song_name;
+        } else {
+          //e.target.src = "/images/icons/video-play.svg";
+          playbtn.src = "/images/icons/play-fill.svg";
+          track.src = data[inix].audio_src;
+          now_play = false;
+          track.pause();
+          wave.classList.remove("active2");
+        }
+      });
+    });
+ */
   }).catch(error => console.error(error));
 });
 
+//Popular Artist exit button setup
 exit_icon.addEventListener("click", ()=>{
   discover.style.display = "flex";
   artist_details.style.display = "none";
 });
 
 /*==================================
-Seek Controls Setup
+Seek Controls Setup (Music duration Controls)
 ===================================*/
 track.addEventListener("timeupdate", () => {
   let music_curr = track.currentTime;
@@ -567,22 +646,22 @@ seek.addEventListener("change", () => {
 });
 
 track.addEventListener("ended", () => {
-  playbtn.src = "images/icons/play-fill.svg";
+  playbtn.src = "/images/icons/play-fill.svg";
   wave.classList.remove("active2");
 });
 
 /*==================================
-Volume Controls Setup
+Music volume Controls Setup
 ===================================*/
 vol.addEventListener("change", () => {
   if (vol.value == 0) {
-    vol_icon.src = "images/icons/volume-mute-fill.svg";
+    vol_icon.src = "/images/icons/volume-mute-fill.svg";
   }
   if (vol.value > 0) {
-    vol_icon.src = "images/icons/volume-down.svg";
+    vol_icon.src = "/images/icons/volume-down.svg";
   }
   if (vol.value > 50) {
-    vol_icon.src = "images/icons/volume-up-fill.svg";
+    vol_icon.src = "/images/icons/volume-up-fill.svg";
   }
 
   let vol_a = vol.value;

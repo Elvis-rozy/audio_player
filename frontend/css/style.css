@@ -299,12 +299,13 @@ main .artiste-details {
 main .artiste-details .artist-id {
   display: flex;
   align-items: center;
-  height: 30vh;
+  height: 20vh;
   gap: 50px;
   margin-bottom: 20px;
 }
 main .artiste-details .artist-id .artist-img {
   height: 100%;
+  width: 20%;
   border-radius: 20px;
 }
 main .artiste-details .artist-id .details {
@@ -333,8 +334,7 @@ main .artiste-details .artist-songs {
   position: fixed;
   overflow: auto;
   width: 70%;
-  padding-bottom: 4vh;
-  height: 50vh;
+  height: 60vh;
 }
 main .artiste-details .artist-songs li {
   position: relative;
