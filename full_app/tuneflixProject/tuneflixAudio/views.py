@@ -142,7 +142,7 @@ def get_artist_top_tracks(request, id):
         token_expiration = int(time.time()) + 3600
 
      # Retrieve the "country" query parameter from the request
-    country = request.query_params.get('country', 'US')  # Default to 'US' if not provided
+    country = request.query_params.get('country', 'Africa')  # Default to 'US' if not provided
     
     # Spotify API endpoint for an artist's top tracks
     base_url = 'https://api.spotify.com/v1'
