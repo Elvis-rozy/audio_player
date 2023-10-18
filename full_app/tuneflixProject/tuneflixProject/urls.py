@@ -17,7 +17,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from tuneflixAudio import views
-from .views import GetPlaylistDetails
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
@@ -35,7 +34,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('new-release/', views.newAlbumRelease, name='new-release'),
     path('artist/<str:id>/top-tracks/', views.get_artist_top_tracks, name='get_artist_top_tracks'),
-    path('get-playlist-details/<str:playlist_id>/', GetPlaylistDetails.as_view(), name='get_playlist_details'),
+    path('get-available-genre-seeds/', views.get_available_genre_seeds, name='get_available_genre_seeds'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0),
          name='schema-swagger-ui')
 ]
