@@ -1,0 +1,112 @@
+[
+  {
+    "video_name": "Castlevania",
+    "video_image": "images/video/castlevania.jpeg",
+    "video_year": "2023",
+    "video_group": "HD",
+    "video_duration": "1hr 52min",
+    "video_id": 1,
+    "video_rating": "8.5",
+    "video_info": "Castlevania- horror anime",
+    "video_src": "moviesB/Halo.mp4"
+  },
+  {
+    "video_name": "AntMan and the Wasp",
+    "video_image": "images/video/antman.jpg",
+    "video_year": "2023",
+    "video_group": "HD",
+    "video_duration": "1hr 46min",
+    "video_id": 2,
+    "video_rating": "7.2",
+    "video_info": "Quantumania",
+    "video_src": "moviesB/Halo.mp4"
+  },
+  {
+    "video_name": "Barbie",
+    "video_image": "images/video/barbie.jpg",
+    "video_year": "2023",
+    "video_group": "4K",
+    "video_duration": "1hr 29min",
+    "video_id": 3,
+    "video_rating": "7.9",
+    "video_info": "Barbie and ken adventures",
+    "video_src": "moviesB/Halo.mp4"
+  },
+  {
+    "video_name": "Nimona",
+    "video_image": "images/video/nimona.jpg",
+    "video_year": "2023",
+    "video_group": "HD",
+    "video_duration": "2hr 10min",
+    "video_id": 4,
+    "video_rating": "9.2",
+    "video_info": "You can't escape your past",
+    "video_src": "moviesB/Halo.mp4"
+  },
+  {
+    "video_name": "Dungeons and Dragons",
+    "video_image": "images/video/dungeons.jpg",
+    "video_year": "2023",
+    "video_group": "4K",
+    "video_duration": "2hr 6min",
+    "video_id": 5,
+    "video_rating": "9.7",
+    "video_info": "Honor among thieves",
+    "video_src": "moviesB/Halo.mp4"
+  },
+  {
+    "video_name": "Elemental",
+    "video_image": "images/video/elemental.jpg",
+    "video_year": "2023",
+    "video_group": "HD",
+    "video_duration": "1hr 32min",
+    "video_id": 6,
+    "video_rating": "8.5",
+    "video_info": "Love between Opposites",
+    "video_src": "moviesB/Halo.mp4"
+  },
+  {
+    "video_name": "Evil Dead Rise",
+    "video_image": "images/video/evildeadrise.jpg",
+    "video_year": "2023",
+    "video_group": "4K",
+    "video_duration": "56min",
+    "video_id": 7,
+    "video_rating": "7.7",
+    "video_info": "Demon possessions",
+    "video_src": "moviesB/Halo.mp4"
+  },
+  {
+    "video_name": "Extraction",
+    "video_image": "images/video/extraction2.jpg",
+    "video_year": "2023",
+    "video_group": "HD",
+    "video_duration": "2hr 36min",
+    "video_id": 8,
+    "video_rating": "8.6",
+    "video_info": "Prepare for the ride of your life",
+    "video_src": "moviesB/Halo.mp4"
+  },
+  {
+    "video_name": "The Flash",
+    "video_image": "images/video/flash.jpg",
+    "video_year": "2023",
+    "video_group": "HD",
+    "video_duration": "2hr 51min",
+    "video_id": 9,
+    "video_rating": "8.5",
+    "video_info": "Superhero action packed",
+    "video_src": "moviesB/Halo.mp4"
+  },
+  {
+    "video_name": "The Guardians of the Galaxy",
+    "video_image": "images/video/guardians.jpg",
+    "video_year": "2023",
+    "video_group": "4K",
+    "video_duration": "2hr 17min",
+    "video_id": 10,
+    "video_rating": "7.9",
+    "video_info": "heroes and protectors vol 4",
+    "video_src": "moviesB/Halo.mp4"
+    }
+]
