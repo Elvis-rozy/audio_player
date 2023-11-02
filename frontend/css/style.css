@@ -887,7 +887,7 @@ main .about-section .card {
 }
 main .about-section .first {
   z-index: 4;
-  background: url("/images/background/about.jpg");
+  background: url("../images/background/about.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -895,7 +895,7 @@ main .about-section .first {
   height: 80%;
 }
 main .about-section .second {
-  background: url("/images/background/about3.jpg");
+  background: url("../images/background/about3.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -905,7 +905,7 @@ main .about-section .second {
   height: 70%;
 }
 main .about-section .third {
-  background: url("/images/background/about2.jpg");
+  background-image: url("../images/background/about2.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
