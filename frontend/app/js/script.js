@@ -216,11 +216,11 @@ music.onclick=() =>{
 //The function that displays video section
 video.addEventListener("click", () => {
   track.pause();
-  playbtn.src = "/images/icons/play-fill.svg";
+  playbtn.src = "images/icons/play-fill.svg";
   wave.classList.remove("active2");
 
   //fetch API data containing all top video section details
-  fetch("/app/JSON/video-data-2.json")
+  fetch("app/JSON/video-data-2.json")
   .then(response => response.json())
   .then(data => {
     //calling the display and play functions for the top videos
@@ -229,7 +229,7 @@ video.addEventListener("click", () => {
   });
 
   //fetch API data containing all video section details
-  fetch("/app/JSON/video-data.json")
+  fetch("app/JSON/video-data.json")
   .then(response => response.json())
   .then(data => {
     //calling the display and play functions for the videos
@@ -441,7 +441,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   //Side-bar Songs section
   //fetch API data containing all audio details
-  fetch("/app/JSON/audiodata.json").then(response => response.json())
+  fetch("app/JSON/audiodata.json").then(response => response.json())
   .then(data => {
 
     //Load new track function
@@ -458,7 +458,7 @@ window.addEventListener("DOMContentLoaded", () => {
       index++;
       load_track(index);
       track.play();
-      playbtn.src = "/images/icons/pause-fill.svg";
+      playbtn.src = "images/icons/pause-fill.svg";
     };
 
     //Previous button setup
@@ -466,18 +466,18 @@ window.addEventListener("DOMContentLoaded", () => {
       index--;
       load_track(index);
       track.play();
-      playbtn.src = "/images/icons/pause-fill.svg";
+      playbtn.src = "images/icons/pause-fill.svg";
     };
 
     //Play button setup
     playbtn.onclick = function play () {
       if (track.paused || track.currentTime <= 0) {
         track.play();
-        playbtn.src = "/images/icons/pause-fill.svg";
+        playbtn.src = "images/icons/pause-fill.svg";
         wave.classList.add("active2");
       } else {
         track.pause();
-        playbtn.src = "/images/icons/play-fill.svg";
+        playbtn.src = "images/icons/play-fill.svg";
         wave.classList.remove("active2");
       }
     };
@@ -485,7 +485,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   //Side-bar Songs section
   //fetch API data containing all audio details
-  fetch("/app/JSON/audiodata.json").then(response => response.json())
+  fetch("app/JSON/audiodata.json").then(response => response.json())
   .then(data => {
 
     displaySidebarSongs(data);
@@ -494,7 +494,7 @@ window.addEventListener("DOMContentLoaded", () => {
     Array.from(document.getElementsByClassName("songListItem")).forEach((element)=>{
       element.addEventListener("click", (e) => {
         point = e.target.id;
-        playbtn.src = "/images/icons/pause-fill.svg";
+        playbtn.src = "images/icons/pause-fill.svg";
         track.src = data[point].audio_src;
         track.play();
         wave.classList.add("active2");
@@ -539,8 +539,8 @@ window.addEventListener("DOMContentLoaded", () => {
       element.addEventListener("click", (e) => {
         if (curr_playing == false) {
           ind = e.target.id;
-          e.target.src = "/images/icons/pause-fill.svg";
-          playbtn.src = "/images/icons/pause-fill.svg";
+          e.target.src = "images/icons/pause-fill.svg";
+          playbtn.src = "images/icons/pause-fill.svg";
           curr_playing = true;
           track.src = data[ind].audio_src;
           track.play();
@@ -550,8 +550,8 @@ window.addEventListener("DOMContentLoaded", () => {
           artist.innerHTML = data[ind].artist_name;
           title.innerHTML = data[ind].song_name;
         } else {
-          e.target.src = "/images/icons/play-circle-fill.svg";
-          playbtn.src = "/images/icons/play-fill.svg";
+          e.target.src = "images/icons/play-circle-fill.svg";
+          playbtn.src = "images/icons/play-fill.svg";
           track.src = data[ind].audio_src;
           curr_playing = false;
           track.pause();
@@ -601,7 +601,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   /* New releases Section*/
   //fetch API data containing all audio details
-  fetch("/app/JSON/audiodata.json").then(response => response.json())
+  fetch("app/JSON/audiodata.json").then(response => response.json())
   .then(data => {
     //calling the display functions for the music page
     displayNewReleasesItem(data);
@@ -612,8 +612,8 @@ window.addEventListener("DOMContentLoaded", () => {
       elem.addEventListener("click", (e) => {
         if (now_playing == false) {
           indix = e.target.id;
-          e.target.src = "/images/icons/pause-fill.svg";
-          playbtn.src = "/images/icons/pause-fill.svg";
+          e.target.src = "images/icons/pause-fill.svg";
+          playbtn.src = "images/icons/pause-fill.svg";
           now_playing = true;
           track.src = data[indix].audio_src;
           track.play();
@@ -622,8 +622,8 @@ window.addEventListener("DOMContentLoaded", () => {
           artist.innerHTML = data[indix].artist_name;
           title.innerHTML = data[indix].song_name;
         } else {
-          e.target.src = "/images/icons/video-play.svg";
-          playbtn.src = "/images/icons/play-fill.svg";
+          e.target.src = "images/icons/video-play.svg";
+          playbtn.src = "images/icons/play-fill.svg";
           track.src = data[indix].audio_src;
           now_playing = false;
           track.pause();
@@ -635,7 +635,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   /*Artist display section*/
   //fetch API data containing all audio details
-  fetch("/app/JSON/audiodata.json").then(response => response.json())
+  fetch("app/JSON/audiodata.json").then(response => response.json())
   .then(data => {
 
     displayArtistItem(data);
@@ -655,7 +655,7 @@ window.addEventListener("DOMContentLoaded", () => {
         Array.from(document.getElementsByClassName("son")).forEach((elem)=>{
           elem.addEventListener("click", (e) => {
             inix = e.target.id;
-            playbtn.src = "/images/icons/pause-fill.svg";
+            playbtn.src = "images/icons/pause-fill.svg";
             track.src = data[inix].audio_src;
             track.play();
             wave.classList.add("active2");
@@ -716,7 +716,7 @@ seek.addEventListener("change", () => {
 });
 
 track.addEventListener("ended", () => {
-  playbtn.src = "/images/icons/play-fill.svg";
+  playbtn.src = "images/icons/play-fill.svg";
   wave.classList.remove("active2");
 });
 
@@ -725,13 +725,13 @@ Music volume Controls Setup
 ===================================*/
 vol.addEventListener("change", () => {
   if (vol.value == 0) {
-    vol_icon.src = "/images/icons/volume-mute-fill.svg";
+    vol_icon.src = "images/icons/volume-mute-fill.svg";
   }
   if (vol.value > 0) {
-    vol_icon.src = "/images/icons/volume-down.svg";
+    vol_icon.src = "images/icons/volume-down.svg";
   }
   if (vol.value > 50) {
-    vol_icon.src = "/images/icons/volume-up-fill.svg";
+    vol_icon.src = "images/icons/volume-up-fill.svg";
   }
 
   let vol_a = vol.value;
@@ -806,7 +806,7 @@ songsLink.onclick = () => {
 const video_menu_link = document.querySelector(".videoLink");
 video_menu_link.addEventListener("click", () => {
 
-  fetch("/app/JSON/video-data-2.json")
+  fetch("app/JSON/video-data-2.json")
   .then(response => response.json())
   .then(data => {
     //calling the display and play functions for the top videos
@@ -815,7 +815,7 @@ video_menu_link.addEventListener("click", () => {
   });
 
   //fetch API data containing all video section details
-  fetch("/app/JSON/video-data.json")
+  fetch("app/JSON/video-data.json")
   .then(response => response.json())
   .then(data => {
     //calling the display and play functions for the videos
