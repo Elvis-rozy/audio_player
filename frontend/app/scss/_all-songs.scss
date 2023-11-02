@@ -7,7 +7,6 @@ main {
 
   .side-bar, .discover {
     position: relative;
-    width: 25%;
     background-color: #0b101c;
     box-shadow: 5px 0 2px #090f1f;
   }
@@ -17,14 +16,10 @@ main {
   }
 
   .side-bar {
-    padding-top: 110px;
 
     .categories {
       padding-left: 20px;
       display: flex;
-      gap: 10px;
-      flex-direction: column;
-      margin-bottom: 40px;
 
       .active {
         color: #36e2ec;
@@ -39,13 +34,16 @@ main {
         }
       }
 
+      .music {
+        display: flex;
+      }
+
      h4 {
         font-weight: 100;
         color: #4c5767;
         transition: .3s linear;
         font-style: italic;
         cursor: pointer;
-        display: flex;
         align-items: center;
 
         &:hover {
@@ -58,7 +56,6 @@ main {
 
         span {
           position: relative;
-          margin-right: 35px;
 
           &::before {
             content: '';
@@ -82,13 +79,11 @@ main {
       flex-direction: column;
       position: fixed;
       overflow: auto;
-      width: 25.28%;
       padding-bottom: 4vh;
-      height: 62vh;
 
       li {
         position: relative;
-        padding: 10px 20px;
+        border-bottom: .5px solid #141416;
         display: flex;
         align-items: center;
         margin-bottom: 10px;
@@ -102,12 +97,11 @@ main {
         span {
           color: #4c5262;
           font-size: 14px;
+          width: 10px;
         }
 
         img {
-          margin-left: 25px;
-          width: 32px;
-          height: 32px;
+          margin-left: 20px;
         }
 
         .song-details {
@@ -188,9 +182,8 @@ main {
   }
 
   .discover {
-    padding-left: 30px;
+    height: 100%;
     //z-index: 3;
-    width: 75%;
     background: #010812;
     box-shadow: 1px -1px 8px #022983;
     border-radius: 10px 0 0 10px;
@@ -198,10 +191,7 @@ main {
 
   .artiste-details {
     flex-direction: column;
-    padding: 25px 0 10px 40px;
-    padding-left: 30px;
     z-index: 3;
-    width: 75%;
     height: 90%;
     background: #010812;
     box-shadow: 1px -1px 8px #022983;
@@ -210,8 +200,6 @@ main {
     .artist-id {
       display: flex;
       align-items: center;
-      height: 20vh;
-      gap: 50px;
       margin-bottom: 20px;
 
       .artist-img {
@@ -223,7 +211,6 @@ main {
       .details {
         display: flex;
         flex-direction: column;
-        gap: 20px;
         width: 50%;
 
         p {
@@ -238,7 +225,6 @@ main {
         padding: 10px;
         border-radius: 50%;
         right: 30px;
-        top: 30px;
 
         &:hover {
           background: rgb(105, 105, 170, .1);
@@ -250,7 +236,6 @@ main {
       flex-direction: column;
       position: fixed;
       overflow: auto;
-      width: 70%;
       height: 60vh;
 
       li {
@@ -267,7 +252,6 @@ main {
         }
 
         img {
-          margin-left: 25px;
           width: 32px;
           height: 32px;
         }
@@ -296,8 +280,9 @@ main {
     background: #0f172d;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    padding: 0 20px;
+    //justify-content: space-evenly;
+    gap: 12px;
+    padding: 0 10px;
     height: 10.5%;
     z-index: 3;
 
@@ -306,7 +291,6 @@ main {
       padding-bottom: 5px;
       justify-content: center;
       border-radius: 5px 5px 0 0;
-      display: flex;
       align-items: flex-end;
       margin-right: 10px;
 
@@ -339,7 +323,7 @@ main {
     .details {
 
       h5 {
-        width: 130px;
+        width: 100px;
         font-size: 13px;
         margin-left: 15px;
         line-height: 15px;
@@ -348,7 +332,7 @@ main {
       p {
         font-size: 11px;
         color: #4c5262;
-        width: 130px;
+        width: 100px;
         margin-left: 15px;
       }
     }
@@ -356,7 +340,6 @@ main {
     .icons {
       font-size: 20px;
       color: #fff;
-      margin: 0 20px 0 40px;
 
       img {
         cursor: pointer;
@@ -375,13 +358,8 @@ main {
     }
 
     span {
-      width: 32px;
       font-size: 11px;
       font-weight: 400;
-
-      .current-start {
-        margin: 0 0 0 20px;
-      }
     }
 
     .bar {
@@ -463,7 +441,7 @@ main {
       .vol-bar {
         position: absolute;
         background: #36e2ec;
-        width: 0;
+        width: 100%;
         height: 100%;
         top: 0;
         transition: .3s linear;
@@ -475,7 +453,7 @@ main {
         height: 5px;
         background: #36e2ec;
         border-radius: 50%;
-        left: 0;
+        left: 100%;
         top: -1px;
         transition: 1s linear;
 
@@ -496,24 +474,104 @@ main {
   }
 
   .about-section {
-    position: absolute;
+    position: relative;
     padding: 30px 40px;
-    bottom: 0;
-    background: url("/images/background/about-bg.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     background: linear-gradient(45deg, black, #5127628a, black);
     transition: .5s linear;
-    overflow-y: hidden;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    display: flex;
+    align-items: center;
 
     .card {
+      position: absolute;
+      width: 25%;
+      height: 88%;
       background: white;
     }
 
+    .first {
+      z-index: 4;
+      background: url("/images/background/about.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      top: 5%;
+      height: 80%;
+    }
+
+    .second {
+      background: url("/images/background/about3.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 3;
+      top: 10%;
+      left: 15%;
+      height: 70%;
+    }
+
+    .third {
+      background: url("/images/background/about2.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      left: 25%;
+      top: 15%;
+      height: 60%;
+    }
+
+    .first:hover{
+      transform: scale(1.005);
+      transition: .3s linear;
+      z-index: 5;
+    }
+
+    .second:hover {
+      transform: scale(1.03);
+      transition: .3s linear;
+      z-index: 5;
+    }
+
+    .third:hover{
+      transform: scale(1.04);
+      transition: .5s linear;
+      z-index: 7;
+    }
+
+    .details {
+      top: 25%;
+      width: 35%;
+      height: 50%;
+      position: absolute;
+      right: 5%;
+
+      h3 {
+        top: 0;
+      }
+
+      p {
+        top: 40px;
+      }
+
+      h3, p {
+        transition: .5s linear;
+        margin-bottom: 18px;
+      }
+
+      h3, p, .contact {
+        position: absolute;
+      }
+
+      .contact {
+        bottom: 10px;
+
+        &:hover {
+          font-size: 16px;
+        }
+      }
+    }
   }
 }
 
