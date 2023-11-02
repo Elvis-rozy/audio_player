@@ -36,18 +36,32 @@ body {
 button {
   position: relative;
   width: 100px;
-  border-radius: 20px;
+  border-radius: 2px;
   background: transparent;
-  border: 1px solid #36e2ec;
+  transition: .3s;
   color: #36e2ec;
-  transition: .05s linear;
-  height: 25px;
+  height: 32px;
+  font-size: 18px;
   z-index: 3;
 
   &:hover {
     color: #fff;
     cursor: pointer;
-    background: #36e2ec;
+    background: linear-gradient(to right, black, rgb(126 11 173 / 65%));
+  }
+}
+
+.opt{
+  display: flex;
+}
+
+.icon-btn {
+  width: 25px;
+  height: 12px;
+  transition: .3s linear;
+
+  &:hover {
+    transform: scale(.97);
   }
 }
 
@@ -56,16 +70,29 @@ Mobile menu Styles
 =========================================*/
 .menu-icon {
   cursor: pointer;
+  z-index: 10;
 
   span {
-      @include width-height ("26px", "2px");
-      background: var(--text-color-dark);
-      transition: transform .4s;
-      display: block;
+    height: 2px;
+    background: white;
+    transition: transform 0.5s linear;
+    display: block;
 
-      &:not(:last-child) {
-          margin-bottom: 5px;
-      }
+    &:nth-child(1) {
+      width: 16px;
+    }
+
+    &:nth-child(2) {
+      width: 10px;
+    }
+
+    &:nth-child(3) {
+      width: 5px;
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 5px;
+    }
   }
 }
 /*=========================================
@@ -74,19 +101,22 @@ Menu Open Action
 .menu-open {
 
   span:first-child {
-      transform: translateY(6px) rotate(45deg);
-      background-color: var(--cta);
-      transform-origin: 45%;
+    transform: translateY(6px) rotate(48deg);
+    background-color: white;
+    transform-origin: 45%;
+    width: 24px;
   }
 
   span:nth-child(2) {
-      opacity: 0;
+    transition: .4s;
+    width: 0;
   }
 
   span:last-child {
-      transform: translateY(-6px) rotate(-45deg);
-      background-color: var(--cta);
-      transform-origin: 45%;
+    transform: translateY(-6px) rotate(-48deg);
+    background-color: white;
+    transform-origin: 45%;
+    width: 24px;
   }
 }
 /*=========================================
@@ -95,52 +125,59 @@ Menu Links Action
 .nav-open {
 
   &.mobile-menu {
-      transform: translateX(0);
+    transform: translateX(0);
   }
 }
 /*=========================================
 Mobile menu Styles
 =========================================*/
 .mobile-menu {
-  @include width-height ("70%", "100%");
-  background: rgba(0, 0, 0, 0.39);
-  transform: translateX(500px);
+  @include Display-justify ("flex", "start");
+  flex-direction: column;
+  padding: 15% 0 20%;
+  background: rgb(15 23 45);
+  width: 40%;
+  height: 100%;
+  transform: translateX(-100%);
   border-radius: 5px 0 0 5px;
-  text-align: center;
-  font-size: 22px;
+  font-size: 18px;
   position: fixed;
-  transition: .3s;
-  z-index: 20;
-  right: 0;
+  transition: .4s linear;
+  z-index: 7;
+  gap: 10%;
+  left: 0;
   top: 0;
 
+  .top-link {
+    height: 23%;
+  }
+
+  .ul-link {
+    height: 35%;
+  }
+
   ul {
-      @include Display-justify ("flex", "center");
-      @include width-height ("100%", "100%");
-      flex-direction: column;
+    @include Display-justify ("flex", "space-evenly");
+    width: 100%;
+    flex-direction: column;
 
-      li:last-child {
-          margin-right: 30px;
+    li{
+      padding: 10px 0 10px 20px;
+      transition: .3s;
+
+      a {
+        color: #4c5767;
+        transition: .3s;
       }
 
-      li{
-          padding: 20px 0;
-          transition: .3s;
+      &:hover {
+        background: rgb(0 0 0 / 36%);
 
-          a {
-              color: var(--background-light-gray);
-              transition: .3s;
-          }
-
-          &:hover {
-              background: rgb(0 0 0 / 36%);
-              border-radius: 0 20px 20px 0;
-
-              a{
-                  color: var(--cta);
-              }
-          }
+        a{
+          color: #fff;
+        }
       }
+    }
   }
 }
 
@@ -155,12 +192,19 @@ Mobile menu Styles
 }
 
 .reg-heit {
-  width: .1px;
-  height: .1px;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  z-index: -1;
 }
 
 .in-view {
-  width: 100%;
-  height: 82%;
+  width: 85%;
+  height: 90%;
   z-index: 5;
+  transform: translateY(-90%) translateX(15%)
+}
+
+.hiding{
+  opacity: 0;
 }

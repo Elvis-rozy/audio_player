@@ -1,6 +1,8 @@
 .main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   position: fixed;
-  padding: 40px 0 0 40px;
   z-index: 10;
 
   .logo a {
